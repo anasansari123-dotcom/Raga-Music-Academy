@@ -12,7 +12,7 @@ export function SoundWave({ className = "" }: { className?: string }) {
           key={i}
           className="w-1 rounded-full bg-gradient-to-t from-gold-dark to-gold-light"
           animate={{
-            height: [8, 12 + Math.random() * 28, 8],
+            height: [8, 12 + ((i * 7) % 28), 8],
           }}
           transition={{
             duration: 0.8 + (i % 5) * 0.1,

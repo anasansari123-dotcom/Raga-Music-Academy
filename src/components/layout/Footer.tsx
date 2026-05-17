@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Share2, Video, Globe, Mail } from "lucide-react";
 import { siteConfig, navLinks, courses } from "@/lib/data";
+import { SocialLinks } from "@/components/ui/SocialLinks";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -74,36 +74,7 @@ export function Footer() {
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-gold-light">
               Connect
             </h4>
-            <div className="flex gap-3">
-              <a
-                href={siteConfig.social.instagram}
-                className="rounded-full border border-white/15 p-2.5 text-ivory/70 transition-all hover:border-gold/50 hover:text-gold-light hover:glow-gold"
-                aria-label="Instagram"
-              >
-                <Share2 size={18} />
-              </a>
-              <a
-                href={siteConfig.social.youtube}
-                className="rounded-full border border-white/15 p-2.5 text-ivory/70 transition-all hover:border-gold/50 hover:text-gold-light"
-                aria-label="YouTube"
-              >
-                <Video size={18} />
-              </a>
-              <a
-                href={siteConfig.social.facebook}
-                className="rounded-full border border-white/15 p-2.5 text-ivory/70 transition-all hover:border-gold/50 hover:text-gold-light"
-                aria-label="Facebook"
-              >
-                <Globe size={18} />
-              </a>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="rounded-full border border-white/15 p-2.5 text-ivory/70 transition-all hover:border-gold/50 hover:text-gold-light"
-                aria-label="Email"
-              >
-                <Mail size={18} />
-              </a>
-            </div>
+            <SocialLinks />
             <p className="mt-4 text-sm text-ivory/50">{siteConfig.email}</p>
           </div>
         </div>

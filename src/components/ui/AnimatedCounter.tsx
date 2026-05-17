@@ -17,11 +17,16 @@ export function AnimatedCounter({
   light = false,
 }: AnimatedCounterProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const [count, setCount] = useState(0);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const [count, setCount] = useState(value);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!isInView || hasAnimated) return;
+
+    setHasAnimated(true);
+    setCount(0);
+
     const duration = 2000;
     const steps = 60;
     const increment = value / steps;
@@ -35,8 +40,9 @@ export function AnimatedCounter({
         setCount(Math.floor(current));
       }
     }, duration / steps);
+
     return () => clearInterval(timer);
-  }, [isInView, value]);
+  }, [isInView, value, hasAnimated]);
 
   return (
     <motion.div
@@ -50,6 +56,7 @@ export function AnimatedCounter({
         className={`heading-display text-4xl font-bold sm:text-5xl ${
           light ? "text-gradient-gold" : "text-gradient-purple"
         }`}
+        suppressHydrationWarning
       >
         {count.toLocaleString()}
         {suffix}

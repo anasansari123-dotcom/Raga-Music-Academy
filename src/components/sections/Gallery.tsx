@@ -11,10 +11,12 @@ import { cn } from "@/lib/utils";
 const aspectClasses = [
   "aspect-[4/5]",
   "aspect-square",
+  "aspect-[3/4]",
+  "aspect-square",
   "aspect-[4/5]",
   "aspect-square",
   "aspect-[3/4]",
-  "aspect-square",
+  "aspect-[4/5]",
 ];
 
 function GalleryItem({
@@ -85,7 +87,7 @@ export function Gallery({ showHeading = true }: GalleryProps) {
           <SectionHeading
             eyebrow="Gallery"
             title="Moments of Musical Grace"
-            subtitle="Student performances, concerts, instruments, and the vibrant life of our online academy."
+            subtitle="Tanpura, veena, kutcheri, mridangam, and the living traditions of Carnatic classical music."
             light
           />
         )}

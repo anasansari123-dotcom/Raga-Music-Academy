@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { courseCategories } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProgramCard } from "@/components/ui/ProgramCard";
-import { TeacherSpotlight } from "@/components/ui/TeacherSpotlight";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { cn } from "@/lib/utils";
 
@@ -54,10 +53,6 @@ export function CoursesSection() {
                     {category.subtitle}
                   </p>
                 </motion.div>
-
-                {category.teacher && (
-                  <TeacherSpotlight teacher={category.teacher} variant={category.variant} />
-                )}
 
                 {category.programs.length === 1 && category.image ? (
                   <motion.div

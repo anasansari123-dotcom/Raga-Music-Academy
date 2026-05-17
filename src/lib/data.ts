@@ -4,11 +4,12 @@ import { images } from "./images";
 export const siteConfig = {
   name: "RAGA VEDA",
   tagline: "Online Music Academy",
-  email: "hello@ragaveda.com",
-  phone: "+91 98765 43210",
-  whatsapp: "https://wa.me/919876543210",
+  email: "nadhavedamusicschool@gmail.com",
+  phone: "+91 91365 93977",
+  whatsapp: "https://wa.me/919136593977",
   social: {
-    instagram: "https://instagram.com/ragaveda",
+    instagram:
+      "https://www.instagram.com/ragavedamusicacademy?igsh=aGJ3OG5vbTl3NTh4",
     youtube: "https://youtube.com/@ragaveda",
     facebook: "https://facebook.com/ragaveda",
   },
@@ -19,6 +20,7 @@ export const navLinks = [
   { href: "#courses", label: "Courses" },
   { href: "#pricing", label: "Fees" },
   { href: "#about", label: "About" },
+  { href: "#teachers", label: "Faculty" },
   { href: "#gallery", label: "Gallery" },
   { href: "#testimonials", label: "Testimonials" },
   { href: "#contact", label: "Contact" },
@@ -408,11 +410,13 @@ export type Teacher = {
 
 export const vineelaMadhumala: Teacher = {
   name: "Vineela Madhumala",
-  role: "Hindustani Classical Vocal Teacher",
+  role: "Carnatic Music Vocal Teacher",
   languages: ["Telugu", "English", "Hindi"],
-  image: "/teachers/vineela-madhumala.png",
-  bio: "Our lead Hindustani faculty guides students through swar sadhana, alaap, taans, and raag study with clear daily structure. Classes are especially welcoming for Telugu-speaking learners who want classical vocal training in their comfort language.",
+  image: "/teachers/vineela-madhumala.jpeg",
+  bio: "Our lead Carnatic faculty guides students through swara training, gamakas, varnams, and kriti study with clear daily structure. Classes are especially welcoming for Telugu-speaking learners who want classical vocal training in their comfort language.",
 };
+
+export const teachers: Teacher[] = [vineelaMadhumala];
 
 export type CourseCategory = {
   id: string;
@@ -445,7 +449,6 @@ export const courseCategories: CourseCategory[] = [
     ragaLabel: "Raags",
     variant: "dark",
     insertPricingAfter: true,
-    teacher: vineelaMadhumala,
   },
   {
     id: "bollywood",
@@ -601,42 +604,68 @@ export const testimonials = [
   },
 ];
 
-export const galleryImages = [
+export type GalleryImage = {
+  id: string;
+  src: string;
+  alt: string;
+  category: string;
+  secondarySrc?: string;
+  secondaryAlt?: string;
+  wide?: boolean;
+};
+
+export const galleryImages: GalleryImage[] = [
   {
     id: "tanpura",
-    src: images.tanpuraSetup,
-    alt: "Tanpura and classical music setup",
-    category: "Classical Setup",
-  },
-  {
-    id: "online-class",
-    src: images.onlineMusicClass,
-    alt: "Online music class with headphones",
-    category: "Online Class",
-  },
-  {
-    id: "performance",
-    src: images.studentVocalPerformance,
-    alt: "Student vocal performance on stage",
-    category: "Performance",
-  },
-  {
-    id: "concert",
-    src: images.classicalConcertMusicians,
-    alt: "Classical concert with live musicians",
-    category: "Concert",
+    src: images.galleryTanpuraShruti,
+    alt: "Tanpura and shruti — the foundation of Carnatic vocal practice",
+    category: "Shruti & Tanpura",
   },
   {
     id: "veena",
-    src: images.veenaInstruments,
-    alt: "Veena and classical instruments",
+    src: images.galleryVeena,
+    alt: "Veena — sacred string instrument of South Indian classical music",
     category: "Veena",
   },
   {
-    id: "instruments",
-    src: images.classicalInstruments,
-    alt: "Classical music instruments",
-    category: "Instruments",
+    id: "kutcheri",
+    src: images.galleryOutdoorKutcheri,
+    alt: "Traditional musicians performing at an outdoor kutcheri",
+    category: "Kutcheri",
+  },
+  {
+    id: "mridangam",
+    src: images.galleryTraditionalDrums,
+    alt: "Traditional Indian percussion — mridangam and classical tala",
+    category: "Mridangam & Tala",
+  },
+  {
+    id: "percussion",
+    src: images.galleryStagePercussion,
+    alt: "Classical percussion artist on stage during a live concert",
+    category: "Laya",
+  },
+  {
+    id: "riyaz",
+    src: images.galleryGuruShishyaRiyaz,
+    alt: "Guru-shishya riyaz — traditional seated classical practice",
+    category: "Riyaz",
+  },
+  {
+    id: "vocal-ensemble",
+    src: images.galleryCarnaticVocalEnsemble,
+    alt: "Carnatic vocal ensemble in traditional attire on stage",
+    category: "Carnatic Vocal",
+  },
+  {
+    id: "performance",
+    src: images.galleryClassicalPerformance,
+    alt: "Classical vocalist in traditional dress performing with instrument",
+    category: "Concert",
+    secondarySrc: images.galleryFacultyVocalist,
+    secondaryAlt:
+      "Carnatic vocal teacher in traditional saree with tanpura — Raga Veda faculty",
+    wide: true,
   },
 ];
 

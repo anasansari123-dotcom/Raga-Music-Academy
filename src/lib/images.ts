@@ -11,7 +11,18 @@ export const images = {
   bollywoodStudio: u("1517230878791-4d28214057c2"),
   devotional: u("1761471676364-78cf6661cb5a"),
 
-  /** Gallery — labels in data.ts galleryImages */
+  /** Gallery — traditional & Carnatic-focused (see galleryImages in data.ts) */
+  galleryTanpuraShruti: u("1653246458437-fd78a9265711", 1200),
+  galleryVeena: u("1763475945300-02cf0355b078", 1200),
+  galleryOutdoorKutcheri: u("1771238113736-5954f174156b", 1200),
+  galleryTraditionalDrums: u("1769947059310-bca7fa241a49", 1200),
+  galleryStagePercussion: u("1771718968046-6b8cee870812", 1200),
+  galleryGuruShishyaRiyaz: u("1721572321944-e297b2d68aa7", 1200),
+  galleryCarnaticVocalEnsemble: u("1764176269321-6d14f4af09c7", 1200),
+  galleryClassicalPerformance: u("1681731030357-829645dd55b1", 1200),
+  galleryFacultyVocalist: "/teachers/vineela-madhumala.jpeg",
+
+  // Legacy gallery aliases (used elsewhere)
   tanpuraSetup: u("1653246458437-fd78a9265711"),
   onlineMusicClass: u("1612478120679-5b7412e15f84"),
   studentVocalPerformance: u("1517230878791-4d28214057c2"),
@@ -19,12 +30,12 @@ export const images = {
   veenaInstruments: u("1763475945300-02cf0355b078"),
   classicalInstruments: u("1633411988188-6e63354a9019"),
 
-  // Testimonials
-  student1: u("1494790108377-be9c29b29330", 200),
-  student2: u("1507003211169-0a1dd7228f2d", 200),
-  student3: u("1438761681033-6461ffad8d80", 200),
-  student4: u("1472099645785-5658abf4ff4e", 200),
-  student5: u("1544005313-94ddf0286df2", 200),
+  // Testimonials — music-themed (no stock portraits)
+  student1: u("1653246458437-fd78a9265711", 200),
+  student2: u("1763475945300-02cf0355b078", 200),
+  student3: u("1742483377813-a2072eb657bd", 200),
+  student4: u("1761471676364-78cf6661cb5a", 200),
+  student5: u("1612478120679-5b7412e15f84", 200),
 
   // Legacy aliases
   instruments: u("1633411988188-6e63354a9019"),

@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Share2, MessageCircle, Mic2 } from "lucide-react";
+import { MessageCircle, Mic2 } from "lucide-react";
+import { InstagramIcon } from "@/components/ui/SocialIcons";
 import { dailyRiyaz, siteConfig } from "@/lib/data";
 import { images, riyazVideoSrc } from "@/lib/images";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
@@ -121,7 +122,7 @@ export function DailyRiyaz() {
               whileHover={{ scale: 1.02 }}
               className="mt-8 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-magenta px-6 py-4 font-semibold text-white shadow-lg"
             >
-              <Share2 size={20} />
+              <InstagramIcon className="h-4 w-4 shrink-0" />
               Follow for Daily Riyaz
             </motion.a>
 

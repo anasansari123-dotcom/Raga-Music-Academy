@@ -40,7 +40,7 @@ export function Testimonials() {
                 <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full ring-4 ring-gold/30">
                   <Image
                     src={t.image}
-                    alt={t.name}
+                    alt={`${t.name} — ${t.course}`}
                     fill
                     className="object-cover"
                     sizes="96px"
