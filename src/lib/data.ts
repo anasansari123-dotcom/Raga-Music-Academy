@@ -11,7 +11,7 @@ export const siteConfig = {
     instagram:
       "https://www.instagram.com/ragavedamusicacademy?igsh=aGJ3OG5vbTl3NTh4",
     youtube: "https://youtube.com/@ragaveda",
-    facebook: "https://facebook.com/ragaveda",
+    facebook: "https://www.facebook.com/share/18eNfNKHRR/",
   },
 };
 
@@ -555,9 +555,9 @@ export const dailyRiyaz = {
     "ClassicalVocalsIndia",
   ],
   stats: [
-    { label: "Students Trained", value: 2500, suffix: "+" },
-    { label: "Daily Learners", value: 850, suffix: "+" },
-    { label: "Online Sessions", value: 12000, suffix: "+" },
+    { label: "Students Trained", value: 2847, suffix: "+" },
+    { label: "Daily Learners", value: 936, suffix: "+" },
+    { label: "Online Sessions", value: 12450, suffix: "+" },
   ],
 };
 

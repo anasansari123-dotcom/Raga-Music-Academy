@@ -48,14 +48,23 @@ type SocialLinksProps = {
   className?: string;
   /** footer = dark glass pills; light = on ivory/cream sections */
   variant?: "footer" | "light";
+  /** Hide WhatsApp (Contact section has its own WhatsApp button) */
+  hideWhatsApp?: boolean;
 };
 
-export function SocialLinks({ className, variant = "footer" }: SocialLinksProps) {
+export function SocialLinks({
+  className,
+  variant = "footer",
+  hideWhatsApp = false,
+}: SocialLinksProps) {
   const isFooter = variant === "footer";
+  const items = hideWhatsApp
+    ? socialLinkItems.filter((item) => item.platform !== "whatsapp")
+    : socialLinkItems;
 
   return (
     <div className={cn("flex flex-wrap items-center gap-2", className)} role="list">
-      {socialLinkItems.map((item) => (
+      {items.map((item) => (
         <a
           key={item.platform}
           href={item.href}

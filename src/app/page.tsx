@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="w-full min-w-0 overflow-x-hidden">
         <Hero />
         <About />
         <TeachersSection />

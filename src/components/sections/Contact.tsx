@@ -56,32 +56,36 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="section-padding relative overflow-hidden bg-gradient-royal">
-      <motion.div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(157,78,221,0.2),transparent_60%)]" />
+    <section
+      id="contact"
+      className="section-padding relative w-full min-w-0 overflow-x-hidden bg-gradient-royal"
+    >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(157,78,221,0.2),transparent_60%)]" />
 
-      <motion.div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto w-full min-w-0 max-w-7xl">
         <SectionHeading
           eyebrow="Get in Touch"
           title="Begin Your Musical Journey"
-          subtitle="Book a free demo, ask about courses, or join our community — we're here to guide every step."
+          subtitle="Book a free demo, ask about courses, or join our community â€” we're here to guide every step."
           light
         />
 
-        <motion.div className="grid gap-10 lg:grid-cols-2">
+        <div className="grid w-full min-w-0 gap-8 lg:grid-cols-2 lg:gap-10">
           <motion.form
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="glass relative rounded-3xl p-8"
+            className="glass relative w-full min-w-0 rounded-2xl p-5 sm:rounded-3xl sm:p-8"
           >
             {status === "success" ? (
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="py-12 text-center text-lg text-gold-light"
+                className="break-words py-10 text-center text-base text-gold-light sm:py-12 sm:text-lg"
               >
-                Thank you! Your inquiry was sent to {siteConfig.email}. We&apos;ll reach out within
+                Thank you! Your inquiry was sent to{" "}
+                <span className="break-all">{siteConfig.email}</span>. We&apos;ll reach out within
                 24 hours.
               </motion.p>
             ) : (
@@ -95,8 +99,8 @@ export function Contact() {
                   aria-hidden
                 />
 
-                <motion.div className="grid gap-5 sm:grid-cols-2">
-                  <motion.div>
+                <div className="grid min-w-0 gap-5 sm:grid-cols-2">
+                  <div className="min-w-0">
                     <label
                       htmlFor="contact-name"
                       className="mb-2 block text-xs uppercase tracking-wider text-ivory/60"
@@ -109,11 +113,11 @@ export function Contact() {
                       required
                       type="text"
                       disabled={status === "loading"}
-                      className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-ivory placeholder:text-ivory/30 focus:border-gold/50 focus:outline-none disabled:opacity-60"
+                      className="box-border w-full max-w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-ivory placeholder:text-ivory/30 focus:border-gold/50 focus:outline-none disabled:opacity-60"
                       placeholder="Your name"
                     />
-                  </motion.div>
-                  <motion.div>
+                  </div>
+                  <div className="min-w-0">
                     <label
                       htmlFor="contact-email"
                       className="mb-2 block text-xs uppercase tracking-wider text-ivory/60"
@@ -126,13 +130,13 @@ export function Contact() {
                       required
                       type="email"
                       disabled={status === "loading"}
-                      className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-ivory placeholder:text-ivory/30 focus:border-gold/50 focus:outline-none disabled:opacity-60"
+                      className="box-border w-full max-w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-ivory placeholder:text-ivory/30 focus:border-gold/50 focus:outline-none disabled:opacity-60"
                       placeholder="you@email.com"
                     />
-                  </motion.div>
-                </motion.div>
+                  </div>
+                </div>
 
-                <motion.div className="mt-5">
+                <div className="mt-5 min-w-0">
                   <label
                     htmlFor="contact-course"
                     className="mb-2 block text-xs uppercase tracking-wider text-ivory/60"
@@ -145,16 +149,16 @@ export function Contact() {
                     required
                     disabled={status === "loading"}
                     defaultValue="carnatic"
-                    className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-ivory focus:border-gold/50 focus:outline-none disabled:opacity-60"
+                    className="box-border w-full max-w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-ivory focus:border-gold/50 focus:outline-none disabled:opacity-60"
                   >
                     <option value="carnatic">Carnatic Classical</option>
                     <option value="hindustani">Hindustani Classical</option>
                     <option value="bollywood">Bollywood / Filmy</option>
                     <option value="bhajans">Bhajans & Shlokas</option>
                   </select>
-                </motion.div>
+                </div>
 
-                <motion.div className="mt-5">
+                <div className="mt-5 min-w-0">
                   <label
                     htmlFor="contact-message"
                     className="mb-2 block text-xs uppercase tracking-wider text-ivory/60"
@@ -166,22 +170,22 @@ export function Contact() {
                     name="message"
                     rows={4}
                     disabled={status === "loading"}
-                    className="w-full resize-none rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-ivory placeholder:text-ivory/30 focus:border-gold/50 focus:outline-none disabled:opacity-60"
+                    className="box-border w-full max-w-full resize-none rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-ivory placeholder:text-ivory/30 focus:border-gold/50 focus:outline-none disabled:opacity-60"
                     placeholder="Tell us about your musical goals..."
                   />
-                </motion.div>
+                </div>
 
                 {status === "error" && (
-                  <p className="mt-4 rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                  <p className="mt-4 break-words rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
                     {errorMessage}
                   </p>
                 )}
 
-                <motion.div className="mt-6">
+                <div className="mt-6">
                   <Button
                     type="submit"
                     variant="primary"
-                    className="w-full sm:w-auto"
+                    className="w-full max-w-full sm:w-auto"
                     disabled={status === "loading"}
                   >
                     {status === "loading" ? (
@@ -189,9 +193,9 @@ export function Contact() {
                     ) : (
                       <Send size={18} />
                     )}
-                    {status === "loading" ? "Sending…" : "Send Message"}
+                    {status === "loading" ? "Sendingâ€¦" : "Send Message"}
                   </Button>
-                </motion.div>
+                </div>
               </>
             )}
           </motion.form>
@@ -200,30 +204,36 @@ export function Contact() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="space-y-6"
+            className="w-full min-w-0 space-y-5 sm:space-y-6"
           >
-            <motion.div variants={fadeUp} custom={0} className="glass rounded-2xl p-6">
-              <h3 className="heading-display mb-4 text-xl font-semibold text-ivory">
+            <motion.div variants={fadeUp} custom={0} className="glass w-full min-w-0 rounded-2xl p-5 sm:p-6">
+              <h3 className="heading-display mb-4 text-lg font-semibold text-ivory sm:text-xl">
                 Contact Details
               </h3>
               <ul className="space-y-4">
-                <li className="flex items-center gap-3 text-ivory/75">
+                <li className="flex min-w-0 items-start gap-3 text-ivory/75">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-white/10 bg-white/5 text-gold">
                     <Mail className="h-3.5 w-3.5" strokeWidth={2} />
                   </span>
-                  <a href={`mailto:${siteConfig.email}`} className="hover:text-gold-light">
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="min-w-0 break-all text-sm leading-relaxed hover:text-gold-light sm:text-base"
+                  >
                     {siteConfig.email}
                   </a>
                 </li>
-                <li className="flex items-center gap-3 text-ivory/75">
+                <li className="flex min-w-0 items-start gap-3 text-ivory/75">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-white/10 bg-white/5 text-gold">
                     <Phone className="h-3.5 w-3.5" strokeWidth={2} />
                   </span>
-                  <a href={`tel:${siteConfig.phone}`} className="hover:text-gold-light">
+                  <a
+                    href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+                    className="min-w-0 break-words text-sm hover:text-gold-light sm:text-base"
+                  >
                     {siteConfig.phone}
                   </a>
                 </li>
-                <li className="flex items-center gap-3 text-ivory/75">
+                <li className="flex min-w-0 items-start gap-3 text-ivory/75">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-white/10 bg-white/5 text-gold">
                     <InstagramIcon className="h-3.5 w-3.5" />
                   </span>
@@ -231,18 +241,18 @@ export function Contact() {
                     href={siteConfig.social.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-gold-light"
+                    className="min-w-0 break-words text-sm hover:text-gold-light sm:text-base"
                   >
                     @ragavedamusicacademy
                   </a>
                 </li>
               </ul>
-              <motion.div className="mt-5 border-t border-white/10 pt-5">
+              <div className="mt-5 border-t border-white/10 pt-5">
                 <p className="mb-3 text-xs uppercase tracking-wider text-ivory/50">
                   Follow us
                 </p>
-                <SocialLinks />
-              </motion.div>
+                <SocialLinks hideWhatsApp />
+              </div>
             </motion.div>
 
             <motion.a
@@ -252,36 +262,36 @@ export function Contact() {
               variants={fadeUp}
               custom={1}
               whileHover={{ scale: 1.02 }}
-              className="flex items-center justify-center gap-3 rounded-2xl bg-[#25D366] px-6 py-5 font-semibold text-white shadow-lg transition-shadow hover:shadow-[#25D366]/40"
+              className="flex w-full min-w-0 items-center justify-center gap-3 rounded-2xl bg-[#25D366] px-5 py-4 text-sm font-semibold text-white shadow-lg transition-shadow hover:shadow-[#25D366]/40 sm:px-6 sm:py-5 sm:text-base"
             >
-              <MessageCircle size={20} strokeWidth={2} />
+              <MessageCircle size={20} strokeWidth={2} className="shrink-0" />
               Chat on WhatsApp
             </motion.a>
 
-            <motion.div variants={fadeUp} custom={2} className="glass rounded-2xl p-6">
+            <motion.div variants={fadeUp} custom={2} className="glass w-full min-w-0 rounded-2xl p-5 sm:p-6">
               <h3 className="heading-display mb-3 text-lg font-semibold text-ivory">
                 Newsletter
               </h3>
-              <p className="mb-4 text-sm text-ivory/60">
+              <p className="mb-4 text-sm leading-relaxed text-ivory/60">
                 Receive riyaz tips, course updates, and performance invites.
               </p>
-              <motion.div className="flex gap-2">
+              <div className="flex min-w-0 flex-col gap-2 sm:flex-row">
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="flex-1 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-ivory focus:border-gold/50 focus:outline-none"
+                  className="box-border min-w-0 flex-1 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-ivory focus:border-gold/50 focus:outline-none"
                 />
                 <button
                   type="button"
-                  className="rounded-xl bg-gold px-4 py-2.5 text-sm font-semibold text-dark hover:bg-gold-light"
+                  className="w-full shrink-0 rounded-xl bg-gold px-4 py-2.5 text-sm font-semibold text-dark hover:bg-gold-light sm:w-auto"
                 >
                   Join
                 </button>
-              </motion.div>
+              </div>
             </motion.div>
           </motion.div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

@@ -10,39 +10,42 @@ type AnimatedCounterProps = {
   light?: boolean;
 };
 
+function easeOutCubic(t: number) {
+  return 1 - Math.pow(1 - t, 3);
+}
+
 export function AnimatedCounter({
   value,
   suffix = "",
   label,
   light = false,
 }: AnimatedCounterProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const [count, setCount] = useState(value);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.35, margin: "0px 0px -40px 0px" });
+  const [count, setCount] = useState(0);
+  const hasRun = useRef(false);
 
   useEffect(() => {
-    if (!isInView || hasAnimated) return;
+    if (!isInView || hasRun.current) return;
+    hasRun.current = true;
 
-    setHasAnimated(true);
-    setCount(0);
+    const duration = 2200;
+    const start = performance.now();
 
-    const duration = 2000;
-    const steps = 60;
-    const increment = value / steps;
-    let current = 0;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= value) {
-        setCount(value);
-        clearInterval(timer);
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = easeOutCubic(progress);
+      setCount(Math.round(value * eased));
+      if (progress < 1) {
+        requestAnimationFrame(tick);
       } else {
-        setCount(Math.floor(current));
+        setCount(value);
       }
-    }, duration / steps);
+    };
 
-    return () => clearInterval(timer);
-  }, [isInView, value, hasAnimated]);
+    setCount(0);
+    requestAnimationFrame(tick);
+  }, [isInView, value]);
 
   return (
     <motion.div
@@ -53,12 +56,12 @@ export function AnimatedCounter({
       className="text-center"
     >
       <p
-        className={`heading-display text-4xl font-bold sm:text-5xl ${
+        className={`heading-display text-4xl font-bold tabular-nums sm:text-5xl ${
           light ? "text-gradient-gold" : "text-gradient-purple"
         }`}
         suppressHydrationWarning
       >
-        {count.toLocaleString()}
+        {count.toLocaleString("en-IN")}
         {suffix}
       </p>
       <p

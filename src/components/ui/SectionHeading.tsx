@@ -31,7 +31,7 @@ export function SectionHeading({
         visible: { transition: { staggerChildren: 0.12 } },
       }}
       className={cn(
-        "mb-14 max-w-3xl",
+        "mb-14 w-full min-w-0 max-w-3xl",
         align === "center" && "mx-auto text-center",
         className
       )}
@@ -52,7 +52,7 @@ export function SectionHeading({
         variants={fadeUp}
         custom={1}
         className={cn(
-          "heading-display text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl",
+          "heading-display break-words text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl",
           light ? "text-ivory" : "text-dark"
         )}
       >
@@ -63,7 +63,7 @@ export function SectionHeading({
           variants={fadeUp}
           custom={2}
           className={cn(
-            "mt-4 text-base leading-relaxed sm:text-lg",
+            "mt-4 break-words text-base leading-relaxed sm:text-lg",
             light ? "text-ivory/75" : "text-dark-soft/80"
           )}
         >
