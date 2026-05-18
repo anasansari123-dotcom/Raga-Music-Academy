@@ -1,5 +1,5 @@
 import type { MusicProgram, PricingTier } from "./types";
-import { images } from "./images";
+import { images, flagImage } from "./images";
 
 export const siteConfig = {
   name: "RAGA VEDA",
@@ -16,14 +16,13 @@ export const siteConfig = {
 };
 
 export const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#courses", label: "Courses" },
-  { href: "#pricing", label: "Fees" },
   { href: "#about", label: "About" },
-  { href: "#teachers", label: "Faculty" },
-  { href: "#gallery", label: "Gallery" },
+  { href: "#teachers", label: "Teacher" },
+  { href: "#courses", label: "Courses" },
   { href: "#testimonials", label: "Testimonials" },
-  { href: "#contact", label: "Contact" },
+  { href: "#certification", label: "Certification" },
+  { href: "#demo-booking", label: "Demo Booking" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export const courses = [
@@ -403,20 +402,122 @@ export const bhajansIntro =
 export type Teacher = {
   name: string;
   role: string;
+  badge: string;
   languages: string[];
-  image: string;
+  image?: string;
   bio: string;
+  highlights?: string[];
+  founder?: boolean;
+  imageRight?: boolean;
+  /** Tailwind object-position, e.g. object-center */
+  imagePosition?: string;
+  imageFit?: "cover" | "contain";
+};
+
+export const aditiGovindan: Teacher = {
+  name: "Aditi Govindan",
+  role: "Advanced Carnatic Music Vocal Trainer",
+  badge: "Faculty Head & Founder",
+  languages: ["English", "Tamil", "Hindi"],
+  image: "/teachers/aditi-govindan.jpeg",
+  imagePosition: "object-[center_25%]",
+  imageFit: "cover",
+  highlights: ["PhD in Carnatic Music", "15+ Years Teaching", "University of Madras"],
+  bio: "Trained under Guru Jaishree Ranganathan and Nirmala Bhasakaran. She leads Raga Veda with a scholar–performer approach — rigorous swara discipline, authentic repertoire, and nurturing guidance for every student.",
+  founder: true,
+};
+
+export const kirtiMishra: Teacher = {
+  name: "Kirti Mishra",
+  role: "Hindustani Classical Music Teacher",
+  badge: "Senior Faculty",
+  languages: ["Hindi", "English" , "Gujarati"],
+  image: "/teachers/kirti-mishra.jpeg",
+  imagePosition: "object-[center_30%]",
+  imageFit: "cover",
+  highlights: ["15+ Years Experience", "Hindustani Vocal", "Swar Sadhana & Ragas"],
+  bio: "With over 15 years of dedicated teaching, Kirti Mishra guides students through the rich tradition of Hindustani classical vocal music — from foundational swar sadhana and alankars to advanced ragas, taans, and performance readiness.",
 };
 
 export const vineelaMadhumala: Teacher = {
   name: "Vineela Madhumala",
   role: "Carnatic Music Vocal Teacher",
+  badge: "Lead Faculty",
   languages: ["Telugu", "English", "Hindi"],
   image: "/teachers/vineela-madhumala.jpeg",
+  imageRight: true,
+  imagePosition: "object-[center_12%]",
+  imageFit: "cover",
+  highlights: ["Swara & Gamaka Training", "Varnams & Kritis", "Telugu-Speaking Learners"],
   bio: "Our lead Carnatic faculty guides students through swara training, gamakas, varnams, and kriti study with clear daily structure. Classes are especially welcoming for Telugu-speaking learners who want classical vocal training in their comfort language.",
 };
 
-export const teachers: Teacher[] = [vineelaMadhumala];
+/** Founder listed first */
+export const teachers: Teacher[] = [
+  aditiGovindan,
+  kirtiMishra,
+  vineelaMadhumala,
+];
+
+export const globalStudents = {
+  title: "Music Classes for Global Students",
+  headline: "Master Indian Classical Music from Anywhere in the World",
+  subtitle:
+    "Flexible timings and authentic cultural learning — live online classes tailored for students across time zones.",
+  regions: [
+    {
+      code: "us",
+      name: "USA",
+      image: images.globalUsa,
+      flagImage: flagImage("us", 160),
+    },
+    {
+      code: "ca",
+      name: "Canada",
+      image: images.globalCanada,
+      flagImage: flagImage("ca", 160),
+    },
+    {
+      code: "au",
+      name: "Australia",
+      image: images.globalAustralia,
+      flagImage: flagImage("au", 160),
+    },
+    {
+      code: "sg",
+      name: "Singapore",
+      image: images.globalSingapore,
+      flagImage: flagImage("sg", 160),
+    },
+    {
+      code: "ae",
+      name: "UAE",
+      image: images.globalUae,
+      flagImage: flagImage("ae", 160),
+    },
+  ],
+};
+
+export const certificationPrograms = [
+  {
+    title: "Foundation Certificate",
+    duration: "6 Months",
+    description:
+      "Swara training, basic ragas, and voice culture — ideal for beginners building a strong classical base.",
+  },
+  {
+    title: "Certificate Course",
+    duration: "1 Year",
+    description:
+      "Intermediate repertoire, improved gamakas, and performance readiness with structured assessments.",
+  },
+  {
+    title: "Advanced Diploma",
+    duration: "3 Years",
+    description:
+      "Advanced ragas, manodharma, concert preparation, and diploma certification upon successful completion.",
+  },
+];
 
 export type CourseCategory = {
   id: string;
@@ -565,7 +666,7 @@ export const testimonials = [
   {
     name: "Priya Sharma",
     course: "Carnatic Certificate",
-    image: images.student1,
+    image: images.testimonialPriya,
     review:
       "Raga Veda transformed my understanding of Carnatic music. My guru's patience and the structured curriculum helped me perform my first varnam within a year.",
     rating: 5,
@@ -573,7 +674,7 @@ export const testimonials = [
   {
     name: "Arjun Mehta",
     course: "Hindustani Advanced",
-    image: images.student2,
+    image: images.testimonialArjun,
     review:
       "The Hindustani program is exceptional. From swar sadhana to taans, every module built my confidence. I now perform at local baithaks.",
     rating: 5,
@@ -581,7 +682,7 @@ export const testimonials = [
   {
     name: "Ananya Reddy",
     course: "Bollywood Vocal",
-    image: images.student3,
+    image: images.testimonialAnanya,
     review:
       "I always dreamed of singing Bollywood songs professionally. The voice modulation and recording modules were game-changers for my demo reel.",
     rating: 5,
@@ -589,7 +690,7 @@ export const testimonials = [
   {
     name: "Ravi Krishnan",
     course: "Bhajans & Shlokas",
-    image: images.student4,
+    image: images.testimonialRavi,
     review:
       "The spiritual atmosphere of the bhajan classes is beautiful. My Sanskrit pronunciation improved dramatically, and I lead bhajans at our temple.",
     rating: 5,
@@ -597,7 +698,7 @@ export const testimonials = [
   {
     name: "Meera Iyer",
     course: "Carnatic Diploma",
-    image: images.student5,
+    image: images.testimonialMeera,
     review:
       "Three years of dedicated learning at Raga Veda earned me my diploma. The manodharma training and annual recitals prepared me for the stage.",
     rating: 5,
@@ -615,6 +716,36 @@ export type GalleryImage = {
 };
 
 export const galleryImages: GalleryImage[] = [
+  {
+    id: "vocal-performance",
+    src: images.galleryVocalPerformance,
+    category: "Soulful Vocal Performance",
+    alt: "A vocalist expressing deep emotion during live classical vocal training",
+  },
+  {
+    id: "tanpura-classical",
+    src: images.galleryTanpuraClassical,
+    category: "Essence of Classical Music",
+    alt: "Traditional tanpura practice — connecting with centuries of Indian classical heritage",
+  },
+  {
+    id: "tanpura-riyaz",
+    src: images.galleryTanpuraRiyaz,
+    category: "Classical Melodies",
+    alt: "Serene tanpura riyaz in traditional attire — the soul of Carnatic practice",
+  },
+  {
+    id: "live-stage",
+    src: images.galleryLiveStage,
+    category: "Live Student Performance",
+    alt: "Student showcase on stage — voice, guitar, and confident stage presence",
+  },
+  {
+    id: "guru-tanpura",
+    src: images.galleryGuruTanpura,
+    category: "Soul of Tradition",
+    alt: "Guru-shishya spirit — meditative riyaz with tanpura and timeless classical wisdom",
+  },
   {
     id: "tanpura",
     src: images.galleryTanpuraShruti,
@@ -671,6 +802,31 @@ export const galleryImages: GalleryImage[] = [
 
 export const faqs = [
   {
+    question: "Can beginners join?",
+    answer:
+      "Yes. Our Foundation programs are designed for absolute beginners. No prior classical training is required — we start with swara sadhana, basic exercises, and simple compositions at a comfortable pace.",
+  },
+  {
+    question: "Is there an age limit?",
+    answer:
+      "Students of all ages are welcome. Children from around 6 years (with parental support for younger learners), teens, adults, and seniors can join. We tailor pace and repertoire to each student's age and goals.",
+  },
+  {
+    question: "Are classes recorded?",
+    answer:
+      "Classes are live and interactive for real-time correction and guidance. Practice material and reference recordings are shared after sessions so students can revise between classes.",
+  },
+  {
+    question: "Do students receive certification?",
+    answer:
+      "Yes. Upon successful completion of each level, students receive a recognized Foundation Certificate, Certificate Course credential, or Advanced Diploma depending on the program enrolled.",
+  },
+  {
+    question: "What are the class timings?",
+    answer:
+      "We offer flexible slots including mornings, evenings, and weekends — ideal for students in India, USA, Canada, Australia, Singapore, UAE, and other regions. Your schedule is discussed during the free demo.",
+  },
+  {
     question: "What is the duration of each course?",
     answer:
       "Carnatic & Hindustani: 6-month Foundation, 1-year Certificate, and 3-year Advanced Diploma. Bollywood: 6-month Foundation and 1-year Certificate. Bhajans & Shlokas: 6-month Certificate course.",
@@ -678,17 +834,7 @@ export const faqs = [
   {
     question: "What are the course fees for Carnatic & Hindustani?",
     answer:
-      "6 Months — Offer: ₹11,999 / $179 USD (Actual: ₹14,999 / $249). 1 Year — Offer: ₹24,999 / $349 USD (Actual: ₹29,999 / $499). 3 Years — Offer: ₹74,999 / $999 USD (Actual: ₹84,999 / $1,499). See our Fees section for full details.",
-  },
-  {
-    question: "Do I receive a certification upon completion?",
-    answer:
-      "Yes. Every program includes a recognized certificate or diploma upon successful completion — Foundation Certificate, Certificate Course, or Advanced Diploma depending on your level.",
-  },
-  {
-    question: "Can absolute beginners join?",
-    answer:
-      "Absolutely. Our 6-month Foundation courses in Carnatic, Hindustani, Bollywood, and Bhajans are designed for beginners with no prior classical training.",
+      "6 Months — Offer: ₹11,999 / $179 USD (Actual: ₹14,999 / $249). 1 Year — Offer: ₹24,999 / $349 USD (Actual: ₹29,999 / $499). 3 Years — Offer: ₹74,999 / $999 USD (Actual: ₹84,999 / $1,499). See our Fees section within Courses for full details.",
   },
   {
     question: "How do online classes work?",

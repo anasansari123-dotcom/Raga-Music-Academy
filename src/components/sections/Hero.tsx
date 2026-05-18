@@ -5,7 +5,7 @@ import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { MusicParticles } from "@/components/ui/MusicParticles";
 import { SoundWave } from "@/components/ui/SoundWave";
-import { heroVideoSrc, images } from "@/lib/images";
+import { heroVideoSrc } from "@/lib/images";
 
 export function Hero() {
   return (
@@ -13,14 +13,13 @@ export function Hero() {
       id="home"
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-dark">
         <video
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          poster={images.heroPoster}
           className="h-full w-full object-cover"
           aria-hidden
         >
@@ -92,7 +91,7 @@ export function Hero() {
             Explore Courses
             <ArrowRight size={18} />
           </Button>
-          <Button href="#contact" variant="outline">
+          <Button href="#demo-booking" variant="outline">
             <Play size={16} className="fill-current" />
             Book Free Demo
           </Button>

@@ -33,7 +33,7 @@ export function TeacherSpotlight({ teacher, variant = "dark" }: TeacherSpotlight
             isDark ? "text-gold-light" : "text-gold-dark"
           )}
         >
-          Lead Faculty
+          {teacher.badge}
         </span>
       </motion.div>
 

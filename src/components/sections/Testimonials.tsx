@@ -19,7 +19,7 @@ export function Testimonials() {
     <section id="testimonials" className="section-padding bg-ivory relative">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          eyebrow="Student Voices"
+          eyebrow="Student Testimonials"
           title="Stories of Musical Transformation"
           subtitle="Hear from our students who discovered their raga and found their stage."
         />
@@ -42,7 +42,7 @@ export function Testimonials() {
                     src={t.image}
                     alt={`${t.name} — ${t.course}`}
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                     sizes="96px"
                   />
                 </div>

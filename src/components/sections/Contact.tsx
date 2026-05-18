@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MessageCircle, Send, Loader2 } from "lucide-react";
+import { Mail, Phone, Send, Loader2 } from "lucide-react";
 import { siteConfig } from "@/lib/data";
 import { InstagramIcon } from "@/components/ui/SocialIcons";
 import { SocialLinks } from "@/components/ui/SocialLinks";
@@ -57,16 +57,16 @@ export function Contact() {
 
   return (
     <section
-      id="contact"
+      id="demo-booking"
       className="section-padding relative w-full min-w-0 overflow-x-hidden bg-gradient-royal"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(157,78,221,0.2),transparent_60%)]" />
 
       <div className="relative mx-auto w-full min-w-0 max-w-7xl">
         <SectionHeading
-          eyebrow="Get in Touch"
-          title="Begin Your Musical Journey"
-          subtitle="Book a free demo, ask about courses, or join our community â€” we're here to guide every step."
+          eyebrow="Demo Booking"
+          title="Book Your Free Demo Class"
+          subtitle="Schedule a free trial, ask about courses, or reach out — we're here to guide every step of your musical journey."
           light
         />
 
@@ -255,20 +255,7 @@ export function Contact() {
               </div>
             </motion.div>
 
-            <motion.a
-              href={siteConfig.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={fadeUp}
-              custom={1}
-              whileHover={{ scale: 1.02 }}
-              className="flex w-full min-w-0 items-center justify-center gap-3 rounded-2xl bg-[#25D366] px-5 py-4 text-sm font-semibold text-white shadow-lg transition-shadow hover:shadow-[#25D366]/40 sm:px-6 sm:py-5 sm:text-base"
-            >
-              <MessageCircle size={20} strokeWidth={2} className="shrink-0" />
-              Chat on WhatsApp
-            </motion.a>
-
-            <motion.div variants={fadeUp} custom={2} className="glass w-full min-w-0 rounded-2xl p-5 sm:p-6">
+            <motion.div variants={fadeUp} custom={1} className="glass w-full min-w-0 rounded-2xl p-5 sm:p-6">
               <h3 className="heading-display mb-3 text-lg font-semibold text-ivory">
                 Newsletter
               </h3>

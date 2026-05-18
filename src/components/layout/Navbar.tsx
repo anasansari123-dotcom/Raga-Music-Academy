@@ -91,7 +91,7 @@ export function Navbar() {
           className="hidden lg:block"
           whileHover={{ scale: 1.02 }}
         >
-          <Button href="#contact" variant="primary">
+          <Button href="#demo-booking" variant="primary">
             Book Free Demo
           </Button>
         </motion.div>
@@ -137,7 +137,7 @@ export function Navbar() {
                 </motion.li>
               ))}
               <li className="mt-4 px-4">
-                <Button href="#contact" variant="primary" className="w-full">
+                <Button href="#demo-booking" variant="primary" className="w-full">
                   Book Free Demo
                 </Button>
               </li>

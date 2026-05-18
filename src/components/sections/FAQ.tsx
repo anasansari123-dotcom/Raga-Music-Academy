@@ -11,12 +11,12 @@ export function FAQ() {
   }));
 
   return (
-    <section className="section-padding bg-gradient-luxury">
+    <section id="faq" className="section-padding bg-gradient-luxury">
       <div className="mx-auto max-w-3xl">
         <SectionHeading
           eyebrow="FAQ"
           title="Frequently Asked Questions"
-          subtitle="Everything you need to know before beginning your musical journey with us."
+          subtitle="Answers for parents and students — beginners, age, recordings, certification, and timings."
         />
         <Accordion items={items} />
       </div>

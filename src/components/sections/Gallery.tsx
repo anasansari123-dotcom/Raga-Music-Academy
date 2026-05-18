@@ -56,8 +56,10 @@ function GalleryItem({
             src={src}
             alt={alt}
             fill
+            priority={index === 0}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-110"
+            unoptimized={src.startsWith("/gallery/")}
             onError={() => setFailed(true)}
           />
         )}
@@ -86,8 +88,8 @@ export function Gallery({ showHeading = true }: GalleryProps) {
         {showHeading && (
           <SectionHeading
             eyebrow="Gallery"
-            title="Moments of Musical Grace"
-            subtitle="Tanpura, veena, kutcheri, mridangam, and the living traditions of Carnatic classical music."
+            title="Voices, Strings & Stage"
+            subtitle="From soulful vocal riyaz and tanpura practice to live performances — glimpses of our classical music journey."
             light
           />
         )}

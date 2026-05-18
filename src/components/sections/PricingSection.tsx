@@ -122,7 +122,7 @@ export function PricingSection({ embedded = false }: PricingSectionProps) {
 
               <div className="mt-8">
                 <Button
-                  href="#contact"
+                  href="#demo-booking"
                   variant={i === 1 ? "primary" : "secondary"}
                   className="w-full justify-center"
                 >

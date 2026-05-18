@@ -7,9 +7,12 @@ import { CoursesSection } from "@/components/sections/CoursesSection";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { DailyRiyaz } from "@/components/sections/DailyRiyaz";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { GlobalStudentsSection } from "@/components/sections/GlobalStudentsSection";
+import { CertificationSection } from "@/components/sections/CertificationSection";
 import { Gallery } from "@/components/sections/Gallery";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
+import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 
 export default function Home() {
   return (
@@ -19,14 +22,17 @@ export default function Home() {
         <Hero />
         <About />
         <TeachersSection />
+        <GlobalStudentsSection />
         <CoursesSection />
         <WhyChooseUs />
-        <DailyRiyaz />
+        <CertificationSection />
         <Testimonials />
+        <DailyRiyaz />
         <Gallery />
         <FAQ />
         <Contact />
       </main>
+      <WhatsAppFloat />
       <Footer />
     </>
   );

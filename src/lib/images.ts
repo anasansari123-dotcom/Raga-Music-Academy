@@ -3,6 +3,13 @@
 const u = (id: string, w = 800) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
 
+const pexels = (id: number, w = 800) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
+
+/** Country flag PNGs (ISO 3166-1 alpha-2) */
+export const flagImage = (countryCode: string, width = 80) =>
+  `https://flagcdn.com/w${width}/${countryCode.toLowerCase()}.png`;
+
 export const images = {
   // Hero & general
   heroPoster: u("1681731030636-8f09daaa2bf3", 1920),
@@ -24,18 +31,30 @@ export const images = {
 
   // Legacy gallery aliases (used elsewhere)
   tanpuraSetup: u("1653246458437-fd78a9265711"),
-  onlineMusicClass: u("1612478120679-5b7412e15f84"),
-  studentVocalPerformance: u("1517230878791-4d28214057c2"),
+  onlineMusicClass: pexels(8613098),
+  studentVocalPerformance: pexels(5555881),
   classicalConcertMusicians: u("1742483377813-a2072eb657bd"),
   veenaInstruments: u("1763475945300-02cf0355b078"),
   classicalInstruments: u("1633411988188-6e63354a9019"),
 
-  // Testimonials — music-themed (no stock portraits)
-  student1: u("1653246458437-fd78a9265711", 200),
-  student2: u("1763475945300-02cf0355b078", 200),
-  student3: u("1742483377813-a2072eb657bd", 200),
-  student4: u("1761471676364-78cf6661cb5a", 200),
-  student5: u("1612478120679-5b7412e15f84", 200),
+  // Testimonials — portraits matched to student names (Pexels)
+  testimonialPriya: pexels(14695385, 400),
+  testimonialArjun: pexels(19070201, 400),
+  testimonialAnanya: pexels(29251869, 400),
+  testimonialRavi: pexels(13156800, 400),
+  testimonialMeera: pexels(29026115, 400),
+
+  /** Gallery — featured (local assets) */
+  galleryVocalPerformance: "/gallery/01-vocal-performance.png",
+  galleryTanpuraClassical: "/gallery/02-tanpura-classical.jpeg",
+  galleryTanpuraRiyaz: "/gallery/03-tanpura-riyaz.png",
+  galleryLiveStage: "/gallery/04-live-stage.png",
+  galleryGuruTanpura: "/gallery/05-guru-tanpura.png",
+
+  /** Gallery — students learning (legacy / optional) */
+  galleryOnlineStudent: pexels(7606066, 1200),
+  galleryMusicLesson: pexels(5555881, 1200),
+  galleryStudentPractice: pexels(4260475, 1200),
 
   // Legacy aliases
   instruments: u("1633411988188-6e63354a9019"),
@@ -43,6 +62,13 @@ export const images = {
   stageLights: u("1517230878791-4d28214057c2"),
   veena: u("1763475945300-02cf0355b078"),
   microphone: u("1511379938549-c1f69419868d"),
+
+  /** Global students — learners in online & vocal classes (Pexels) */
+  globalUsa: pexels(7606066),
+  globalCanada: pexels(4260475),
+  globalAustralia: pexels(5555881),
+  globalSingapore: pexels(8613098),
+  globalUae: pexels(8199558),
 } as const;
 
 export const heroVideoSrc = "/hero-bg.mp4";
