@@ -1,5 +1,5 @@
 import type { MusicProgram, PricingTier } from "./types";
-import { images, flagImage } from "./images";
+import { images } from "./images";
 
 export const siteConfig = {
   name: "RAGA VEDA",
@@ -469,31 +469,31 @@ export const globalStudents = {
       code: "us",
       name: "USA",
       image: images.globalUsa,
-      flagImage: flagImage("us", 160),
+      imageAlt: "USA students learning Indian classical music online",
     },
     {
       code: "ca",
       name: "Canada",
       image: images.globalCanada,
-      flagImage: flagImage("ca", 160),
+      imageAlt: "Canada students in live online Carnatic and Hindustani classes",
     },
     {
       code: "au",
       name: "Australia",
       image: images.globalAustralia,
-      flagImage: flagImage("au", 160),
+      imageAlt: "Australia students learning Indian classical music online",
     },
     {
       code: "sg",
       name: "Singapore",
       image: images.globalSingapore,
-      flagImage: flagImage("sg", 160),
+      imageAlt: "Singapore students in online Indian classical vocal training",
     },
     {
       code: "ae",
       name: "UAE",
       image: images.globalUae,
-      flagImage: flagImage("ae", 160),
+      imageAlt: "UAE students learning Carnatic and Hindustani music online",
     },
   ],
 };

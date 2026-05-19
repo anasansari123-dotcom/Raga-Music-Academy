@@ -63,12 +63,12 @@ export const images = {
   veena: u("1763475945300-02cf0355b078"),
   microphone: u("1511379938549-c1f69419868d"),
 
-  /** Global students — learners in online & vocal classes (Pexels) */
-  globalUsa: pexels(7606066),
-  globalCanada: pexels(4260475),
-  globalAustralia: pexels(5555881),
-  globalSingapore: pexels(8613098),
-  globalUae: pexels(8199558),
+  /** Global students — online music class cards (local) */
+  globalUsa: "/global/usa.png",
+  globalCanada: "/global/canada.png",
+  globalAustralia: "/global/australia.png",
+  globalSingapore: "/global/singapore.png",
+  globalUae: "/global/uae.png",
 } as const;
 
 export const heroVideoSrc = "/hero-bg.mp4";

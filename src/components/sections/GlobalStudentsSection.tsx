@@ -53,38 +53,28 @@ export function GlobalStudentsSection() {
               custom={i}
               className="group overflow-hidden rounded-2xl border border-gold/25 bg-white shadow-md transition-shadow hover:shadow-xl"
             >
-              <div className="relative aspect-[3/4] w-full overflow-hidden">
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-cream">
                 <Image
                   src={region.image}
-                  alt={region.name}
+                  alt={region.imageAlt}
                   fill
                   priority={i === 0}
                   sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 18vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  unoptimized
                 />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-purple-deep/90 via-purple-deep/25 to-transparent"
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-purple-deep/85 via-purple-deep/15 to-transparent"
                   aria-hidden
                 />
-                <motion.div className="absolute left-3 top-3 z-10 overflow-hidden rounded-md shadow-lg ring-2 ring-white/40 sm:left-4 sm:top-4">
-                  <motion.div className="relative h-7 w-10 sm:h-8 sm:w-12">
-                    <Image
-                      src={region.flagImage}
-                      alt={`${region.name} flag`}
-                      fill
-                      sizes="48px"
-                      className="object-cover"
-                    />
-                  </motion.div>
-                </motion.div>
-                <motion.div className="absolute bottom-0 left-0 right-0 p-3 text-center sm:p-4">
+                <div className="absolute bottom-0 left-0 right-0 p-3 text-center sm:p-4">
                   <p className="text-sm font-bold tracking-wide text-white sm:text-base">
                     {region.name}
                   </p>
                   <p className="mt-0.5 text-[10px] font-medium uppercase tracking-wider text-white/80 sm:text-xs">
                     Students
                   </p>
-                </motion.div>
+                </div>
               </div>
             </motion.li>
           ))}
