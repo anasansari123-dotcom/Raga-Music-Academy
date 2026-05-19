@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Award, Languages, Mic2, Sparkles } from "lucide-react";
+import { Award, Languages, MapPin, Mic2, Sparkles } from "lucide-react";
 import { teachers, type Teacher } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { fadeUp, slideFromRight } from "@/lib/motion";
@@ -119,15 +119,36 @@ function TeacherCard({ teacher }: { teacher: Teacher }) {
             {teacher.name}
           </motion.h3>
 
-          <motion.p
-            variants={fadeUp}
-            custom={2}
-            className="mt-2 text-base font-medium text-gold-dark sm:text-lg"
-          >
-            {teacher.role}
-          </motion.p>
+                  <motion.p
+                    variants={fadeUp}
+                    custom={2}
+                    className="mt-2 text-base font-medium text-gold-dark sm:text-lg"
+                  >
+                    {teacher.role}
+                  </motion.p>
 
-          {teacher.highlights && teacher.highlights.length > 0 && (
+                  {teacher.tagline && (
+                    <motion.p
+                      variants={fadeUp}
+                      custom={2}
+                      className="mt-1 text-sm tracking-wide text-dark-soft/75"
+                    >
+                      {teacher.tagline}
+                    </motion.p>
+                  )}
+
+                  {teacher.location && (
+                    <motion.p
+                      variants={fadeUp}
+                      custom={2}
+                      className="mt-2 inline-flex items-center gap-1.5 text-sm text-dark-soft/70"
+                    >
+                      <MapPin size={14} className="shrink-0 text-gold-dark" />
+                      {teacher.location}
+                    </motion.p>
+                  )}
+
+                  {teacher.highlights && teacher.highlights.length > 0 && (
             <motion.ul
               variants={fadeUp}
               custom={3}
@@ -161,14 +182,32 @@ function TeacherCard({ teacher }: { teacher: Teacher }) {
             ))}
           </motion.div>
 
-          <motion.p
-            variants={fadeUp}
-            custom={5}
-            className="mt-6 border-t border-gold/15 pt-6 text-base leading-relaxed text-dark-soft/90"
-          >
-            {teacher.bio}
-          </motion.p>
-        </motion.div>
+                  <motion.p
+                    variants={fadeUp}
+                    custom={5}
+                    className="mt-6 border-t border-gold/15 pt-6 text-base leading-relaxed text-dark-soft/90"
+                  >
+                    {teacher.bio}
+                  </motion.p>
+
+                  {teacher.credentials && teacher.credentials.length > 0 && (
+                    <motion.ul
+                      variants={fadeUp}
+                      custom={6}
+                      className="mt-5 space-y-2.5 border-t border-gold/10 pt-5"
+                    >
+                      {teacher.credentials.map((item) => (
+                        <li
+                          key={item}
+                          className="flex gap-2 text-sm leading-relaxed text-dark-soft/85"
+                        >
+                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold" />
+                          {item}
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </motion.div>
       </motion.div>
     </motion.article>
   );

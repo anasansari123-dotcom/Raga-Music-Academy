@@ -53,16 +53,20 @@ export function GlobalStudentsSection() {
               custom={i}
               className="group overflow-hidden rounded-2xl border border-gold/25 bg-white shadow-md transition-shadow hover:shadow-xl"
             >
-              <div className="relative aspect-[3/4] w-full overflow-hidden bg-cream">
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-purple-deep">
                 <Image
                   src={region.image}
                   alt={region.imageAlt}
                   fill
                   priority={i === 0}
                   sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 18vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="scale-[1.12] object-cover object-top transition-transform duration-500 group-hover:scale-[1.18]"
                   unoptimized
                 />
+                {/* <div
+                  className="absolute inset-0 bg-gradient-to-b from-purple-deep/70 via-transparent to-transparent"
+                  aria-hidden
+                /> */}
                 <div
                   className="absolute inset-0 bg-gradient-to-t from-purple-deep/85 via-purple-deep/15 to-transparent"
                   aria-hidden

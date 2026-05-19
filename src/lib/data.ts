@@ -406,7 +406,10 @@ export type Teacher = {
   languages: string[];
   image?: string;
   bio: string;
+  tagline?: string;
+  location?: string;
   highlights?: string[];
+  credentials?: string[];
   founder?: boolean;
   imageRight?: boolean;
   /** Tailwind object-position, e.g. object-center */
@@ -418,12 +421,24 @@ export const aditiGovindan: Teacher = {
   name: "Aditi Govindan",
   role: "Advanced Carnatic Music Vocal Trainer",
   badge: "Faculty Head & Founder",
-  languages: ["English", "Tamil", "Hindi"],
+  tagline: "Tradition • Technique • Soulful Learning",
+  location: "Chennai, Tamil Nadu, India",
+  languages: ["Tamil", "English", "Hindi"],
   image: "/teachers/aditi-govindan.jpeg",
   imagePosition: "object-[center_25%]",
   imageFit: "cover",
-  highlights: ["PhD in Carnatic Music", "15+ Years Teaching", "University of Madras"],
-  bio: "Trained under Guru Jaishree Ranganathan and Nirmala Bhasakaran. She leads Raga Veda with a scholar–performer approach — rigorous swara discipline, authentic repertoire, and nurturing guidance for every student.",
+  highlights: [
+    "Diploma in Carnatic Music — Delhi University (2016)",
+    "10+ Years Classical Training",
+    "Guru Smt. Nirmala Bhaskaran",
+  ],
+  bio: "Dedicated Carnatic vocal music educator with over 10 years of rigorous classical training and performance exposure. Experienced in nurturing beginners with strong fundamentals, voice culture, and traditional repertoire — delivering structured, inspiring, and disciplined music education online and offline.",
+  credentials: [
+    "Advanced training under Guru Smt. Nirmala Bhaskaran — voice culture, manodharma & classical compositions",
+    "Private Carnatic vocal classes for children & beginners (2024 – Present)",
+    "Curriculum: slokas, bhajans, varnams & kritis with shruti alignment and laya control",
+    "Performances at cultural & temple events in Chennai and Delhi — Navratri Utsavam & Tamil Sangam programs",
+  ],
   founder: true,
 };
 
@@ -431,12 +446,26 @@ export const kirtiMishra: Teacher = {
   name: "Kirti Mishra",
   role: "Hindustani Classical Music Teacher",
   badge: "Senior Faculty",
-  languages: ["Hindi", "English" , "Gujarati"],
+  tagline: "Hindustani Classical • Bollywood Vocal • Music Theory",
+  location: "Jamnagar, Gujarat, India",
+  languages: ["Hindi", "English", "Gujarati"],
   image: "/teachers/kirti-mishra.jpeg",
   imagePosition: "object-[center_30%]",
   imageFit: "cover",
-  highlights: ["15+ Years Experience", "Hindustani Vocal", "Swar Sadhana & Ragas"],
-  bio: "With over 15 years of dedicated teaching, Kirti Mishra guides students through the rich tradition of Hindustani classical vocal music — from foundational swar sadhana and alankars to advanced ragas, taans, and performance readiness.",
+  highlights: [
+    "Visharad in Vocal — Gandharva Mahavidyalaya, Mumbai",
+    "Level 3 Advanced — Hindustani & Bollywood",
+    "M.Com — MKHS Gujarati College, Indore",
+  ],
+  bio: "A passionate music educator with extensive experience in Hindustani classical and Bollywood vocal training. Kirti Mishra inspires students through engaging one-on-one and group lessons — covering swar sadhana, alankars, ragas, taans, music theory, sight-reading, and performance — while fostering discipline, creativity, and lifelong musical appreciation.",
+  credentials: [
+    "Swar Jhankar Academy (Self Employed) — Online music classes, Jamnagar (2025 – Present)",
+    "Music Teacher, RSCC Music Class — instrumental & vocal technique, theory & ear training (2025 – Present)",
+    "Visharad in Vocal — Akhil Bhartiya Gandharva Mahavidyalaya Mandal, Mumbai (2018 – 2024)",
+    "Level 3rd Advanced in Hindustani classical & Bollywood singing — Amit Tomar Music Academy, Mumbai (2023 – 24)",
+    "PGDCA — Rajeev Gandhi Computer Saksharta Mission (2008 – 09, A+ 90%)",
+    "Performances: Tagore Hall Ahmedabad, Reliance Greens Bhajan Sandhya, Namaste Jamnagar 2025 (Raag Megh Malhar)",
+  ],
 };
 
 export const vineelaMadhumala: Teacher = {
