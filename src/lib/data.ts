@@ -636,21 +636,13 @@ export const whyChooseUs = [
       "Build confidence with stage etiquette, mic technique, and live performance prep.",
     icon: "spotlight",
   },
-  {
-    title: "Daily Riyaz Practice",
-    description:
-      "Comment RIYAZ for structured daily practice — swar sadhana, alankars & pitch control.",
-    icon: "sunrise",
-  },
 ];
 
 export const dailyRiyaz = {
-  cta: 'Comment "RIYAZ" to Improve Your Voice Daily',
+  cta: "Improve Your Voice with Daily Riyaz",
   headline: "Most students quit singing because they don't have a proper practice structure.",
   description:
     "Daily Riyaz builds voice control, pitch accuracy, confidence, and classical foundation step by step. We're sharing simple Hindustani Classical practice content every day for beginners who seriously want to improve singing without confusion.",
-  callToAction:
-    'Comment "RIYAZ" and we\'ll send the daily practice structure & beginner resources.',
   followNote: "Follow for more Hindustani Classical learning content",
   practices: [
     {
@@ -693,41 +685,41 @@ export const dailyRiyaz = {
 
 export const testimonials = [
   {
-    name: "Priya Sharma",
+    name: "Priya Anand",
     course: "Carnatic Certificate",
-    image: images.testimonialPriya,
+    image: images.testimonialPriyaAnand,
     review:
       "Raga Veda transformed my understanding of Carnatic music. My guru's patience and the structured curriculum helped me perform my first varnam within a year.",
     rating: 5,
   },
   {
-    name: "Arjun Mehta",
+    name: "Vikram Joshi",
     course: "Hindustani Advanced",
-    image: images.testimonialArjun,
+    image: images.testimonialVikramJoshi,
     review:
       "The Hindustani program is exceptional. From swar sadhana to taans, every module built my confidence. I now perform at local baithaks.",
     rating: 5,
   },
   {
-    name: "Ananya Reddy",
+    name: "Kavya Malhotra",
     course: "Bollywood Vocal",
-    image: images.testimonialAnanya,
+    image: images.testimonialKavyaMalhotra,
     review:
       "I always dreamed of singing Bollywood songs professionally. The voice modulation and recording modules were game-changers for my demo reel.",
     rating: 5,
   },
   {
-    name: "Ravi Krishnan",
+    name: "Gurmit Singh",
     course: "Bhajans & Shlokas",
-    image: images.testimonialRavi,
+    image: images.testimonialRajeshSharma,
     review:
       "The spiritual atmosphere of the bhajan classes is beautiful. My Sanskrit pronunciation improved dramatically, and I lead bhajans at our temple.",
     rating: 5,
   },
   {
-    name: "Meera Iyer",
+    name: "Lakshmi Narayanan",
     course: "Carnatic Diploma",
-    image: images.testimonialMeera,
+    image: images.testimonialLakshmiNarayanan,
     review:
       "Three years of dedicated learning at Raga Veda earned me my diploma. The manodharma training and annual recitals prepared me for the stage.",
     rating: 5,

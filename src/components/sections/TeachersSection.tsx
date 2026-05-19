@@ -233,7 +233,7 @@ export function TeachersSection() {
         />
 
         <motion.div className="space-y-10 lg:space-y-14">
-          {teachers.map((teacher, index) => (
+          {teachers.map((teacher) => (
             <TeacherCard key={teacher.name} teacher={teacher} />
           ))}
         </motion.div>

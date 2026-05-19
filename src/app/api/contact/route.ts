@@ -46,8 +46,15 @@ function parseBody(body: unknown): ContactInquiry | null {
   return trimmed;
 }
 
+const MAX_BODY_BYTES = 16_384;
+
 export async function POST(request: Request) {
   try {
+    const contentLength = request.headers.get("content-length");
+    if (contentLength && Number(contentLength) > MAX_BODY_BYTES) {
+      return NextResponse.json({ error: "Request too large." }, { status: 413 });
+    }
+
     const body = await request.json();
     const data = parseBody(body);
 
@@ -64,7 +71,11 @@ export async function POST(request: Request) {
       error instanceof Error ? error.message : "Unable to send your message. Please try again.";
 
     const status = message.includes("not configured") ? 503 : 500;
+    const clientMessage =
+      process.env.NODE_ENV === "production" && status === 500
+        ? "Unable to send your message. Please try again or contact us on WhatsApp."
+        : message;
 
-    return NextResponse.json({ error: message }, { status });
+    return NextResponse.json({ error: clientMessage }, { status });
   }
 }

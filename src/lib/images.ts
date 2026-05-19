@@ -1,7 +1,7 @@
 /** Image URLs — keyword-matched for gallery, courses & about */
 
 const u = (id: string, w = 800) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
+  `https://images.unsplash.com/photo-${id}?ixlib=rb-4.0.0&w=${w}&q=80`;
 
 const pexels = (id: number, w = 800) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
@@ -21,8 +21,10 @@ export const images = {
   /** Gallery — traditional & Carnatic-focused (see galleryImages in data.ts) */
   galleryTanpuraShruti: u("1653246458437-fd78a9265711", 1200),
   galleryVeena: u("1763475945300-02cf0355b078", 1200),
-  galleryOutdoorKutcheri: u("1771238113736-5954f174156b", 1200),
-  galleryTraditionalDrums: u("1769947059310-bca7fa241a49", 1200),
+  /** Kutcheri — outdoor sitar performance, West Bengal */
+  galleryOutdoorKutcheri: u("1742483377813-a2072eb657bd", 1200),
+  /** Mridangam & tala — Carnatic ensemble (mridangam, tanpura, veena) */
+  galleryTraditionalDrums: "/gallery/06-mridangam-ensemble.png",
   galleryStagePercussion: u("1771718968046-6b8cee870812", 1200),
   galleryGuruShishyaRiyaz: u("1721572321944-e297b2d68aa7", 1200),
   galleryCarnaticVocalEnsemble: u("1764176269321-6d14f4af09c7", 1200),
@@ -37,12 +39,12 @@ export const images = {
   veenaInstruments: u("1763475945300-02cf0355b078"),
   classicalInstruments: u("1633411988188-6e63354a9019"),
 
-  // Testimonials — portraits matched to student names (Pexels)
-  testimonialPriya: pexels(14695385, 400),
-  testimonialArjun: pexels(19070201, 400),
-  testimonialAnanya: pexels(29251869, 400),
-  testimonialRavi: pexels(13156800, 400),
-  testimonialMeera: pexels(29026115, 400),
+  // Testimonials — portraits matched to names & tradition (Pexels)
+  testimonialPriyaAnand: pexels(14695385, 400), // Carnatic — Chennai, Tamil Nadu
+  testimonialLakshmiNarayanan: pexels(29026115, 400), // Carnatic — traditional saree
+  testimonialVikramJoshi: pexels(19070201, 400), // Hindustani
+  testimonialKavyaMalhotra: pexels(29251869, 400), // Bollywood
+  testimonialRajeshSharma: pexels(13156800, 400), // Bhajans & Shlokas
 
   /** Gallery — featured (local assets) */
   galleryVocalPerformance: "/gallery/01-vocal-performance.png",

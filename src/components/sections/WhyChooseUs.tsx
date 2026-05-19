@@ -8,7 +8,6 @@ import {
   Trophy,
   Calendar,
   Spotlight,
-  Sunrise,
 } from "lucide-react";
 import { whyChooseUs } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -21,7 +20,6 @@ const iconMap: Record<string, React.ComponentType<{ className?: string; size?: n
   trophy: Trophy,
   calendar: Calendar,
   spotlight: Spotlight,
-  sunrise: Sunrise,
 };
 
 export function WhyChooseUs() {
@@ -31,7 +29,7 @@ export function WhyChooseUs() {
         <SectionHeading
           eyebrow="Why Raga Veda"
           title="Excellence in Every Note"
-          subtitle="Seven pillars that make our academy the premier choice for serious vocal students worldwide."
+          subtitle="Six pillars that make our academy the premier choice for serious vocal students worldwide."
         />
 
         <motion.div
@@ -39,7 +37,7 @@ export function WhyChooseUs() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {whyChooseUs.map((feature, i) => {
             const Icon = iconMap[feature.icon] || Award;

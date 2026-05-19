@@ -59,7 +59,9 @@ function GalleryItem({
             priority={index === 0}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-110"
-            unoptimized={src.startsWith("/gallery/")}
+            unoptimized={
+              src.startsWith("/gallery/") || src.includes("images.pexels.com")
+            }
             onError={() => setFailed(true)}
           />
         )}

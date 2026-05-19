@@ -56,14 +56,6 @@ export function DailyRiyaz() {
               {dailyRiyaz.description}
             </motion.p>
 
-            <motion.p
-              variants={fadeUp}
-              custom={4}
-              className="mt-4 rounded-xl border border-gold/25 bg-gold/10 px-4 py-3 text-sm text-gold-light"
-            >
-              👉 {dailyRiyaz.callToAction}
-            </motion.p>
-
             <motion.div variants={staggerContainer} className="mt-8 space-y-3">
               {dailyRiyaz.practices.map((practice, i) => (
                 <motion.div
