@@ -16,12 +16,9 @@ export type MusicProgram = {
   performance?: string[];
 };
 
-export type PricingTier = {
+export type CourseFee = {
   id: string;
-  duration: string;
-  label: string;
-  actualInr: number;
-  actualUsd: number;
-  offerInr: number;
-  offerUsd: number;
+  title: string;
+  subtitle: string;
+  priceInr: number;
 };

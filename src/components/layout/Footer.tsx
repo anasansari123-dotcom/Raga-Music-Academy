@@ -23,14 +23,17 @@ export function Footer() {
                 <span className="heading-display block break-words text-lg font-semibold text-ivory sm:text-xl">
                   {siteConfig.name}
                 </span>
-                <span className="text-[10px] uppercase tracking-widest text-gold-light/70 sm:text-xs">
-                  {siteConfig.tagline}
-                </span>
+                {siteConfig.tagline ? (
+                  <span className="text-[10px] uppercase tracking-widest text-gold-light/70 sm:text-xs">
+                    {siteConfig.tagline}
+                  </span>
+                ) : null}
               </div>
             </Link>
             <p className="mt-4 break-words text-sm leading-relaxed text-ivory/60">
               Awakening voices through the timeless beauty of Indian classical
-              and contemporary vocal music — online, accessible, transformative.
+              and contemporary vocal music — online and offline, accessible,
+              transformative.
             </p>
           </div>
 
@@ -75,7 +78,6 @@ export function Footer() {
               Connect
             </h4>
             <SocialLinks />
-            <p className="mt-4 break-all text-sm text-ivory/50">{siteConfig.email}</p>
           </div>
         </div>
 

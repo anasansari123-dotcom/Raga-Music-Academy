@@ -41,7 +41,7 @@ export const images = {
 
   // Testimonials — portraits matched to names & tradition (Pexels)
   testimonialPriyaAnand: pexels(14695385, 400), // Carnatic — Chennai, Tamil Nadu
-  testimonialLakshmiNarayanan: pexels(29026115, 400), // Carnatic — traditional saree
+  testimonialLakshmiNarayanan: pexels(15556801, 400), // Carnatic — South Indian, traditional saree
   testimonialVikramJoshi: pexels(19070201, 400), // Hindustani
   testimonialKavyaMalhotra: pexels(29251869, 400), // Bollywood
   testimonialRajeshSharma: pexels(13156800, 400), // Bhajans & Shlokas
@@ -64,6 +64,11 @@ export const images = {
   stageLights: u("1517230878791-4d28214057c2"),
   veena: u("1763475945300-02cf0355b078"),
   microphone: u("1511379938549-c1f69419868d"),
+
+  /** Academy affiliations */
+  affiliationTvgaAima: "/affiliations/tvga-aima.png",
+  affiliationBridgeAcademy: "/affiliations/bridge-academy-carnatic.png",
+  affiliationSuroBharati: "/affiliations/suro-bharati-hindustani.png",
 
   /** Global students — online music class cards (local) */
   globalUsa: "/global/usa.png",

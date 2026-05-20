@@ -29,11 +29,6 @@ export const socialLinkItems: SocialLinkItem[] = [
     href: siteConfig.whatsapp,
     label: "WhatsApp",
   },
-  {
-    platform: "email",
-    href: `mailto:${siteConfig.email}`,
-    label: "Email",
-  },
 ];
 
 const hoverStyles: Record<SocialPlatform, string> = {

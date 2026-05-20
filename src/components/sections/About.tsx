@@ -16,7 +16,7 @@ export function About() {
         <SectionHeading
           eyebrow="Our Story"
           title="Where Tradition Meets Modern Excellence"
-          subtitle="Raga Veda is a premium online music academy dedicated to preserving and propagating India's rich vocal heritage through world-class digital education."
+          subtitle="Raga Veda is a premium music academy dedicated to preserving and propagating India's rich vocal heritage through world-class online and offline education."
         />
 
         <div className="grid items-center gap-12 lg:grid-cols-2">

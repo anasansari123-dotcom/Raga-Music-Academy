@@ -46,7 +46,7 @@ export function Hero() {
         >
           <span className="h-2 w-2 animate-pulse rounded-full bg-gold" />
           <span className="text-xs uppercase tracking-[0.2em] text-gold-light">
-            Premium Online Music Academy
+            Premium Music Academy
           </span>
         </motion.div>
 
@@ -77,8 +77,8 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ivory/80 sm:text-lg md:text-xl"
         >
-          Professional Online Certification Courses in Carnatic, Hindustani
-          &amp; Bollywood Vocal Music
+          Professional Certification Courses in Carnatic, Hindustani
+          &amp; Bollywood Vocal Music — Online &amp; Offline
         </motion.p>
 
         <motion.div

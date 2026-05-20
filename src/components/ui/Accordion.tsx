@@ -13,10 +13,21 @@ type AccordionItem = {
 type AccordionProps = {
   items: AccordionItem[];
   light?: boolean;
+  /** When true, first item starts expanded; when false, all start collapsed */
+  defaultOpen?: boolean;
+  /** Tighter trigger for course cards — consistent height across a row */
+  compact?: boolean;
 };
 
-export function Accordion({ items, light = false }: AccordionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+export function Accordion({
+  items,
+  light = false,
+  defaultOpen = false,
+  compact = false,
+}: AccordionProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(
+    defaultOpen ? 0 : null
+  );
 
   return (
     <motion.div
@@ -45,11 +56,17 @@ export function Accordion({ items, light = false }: AccordionProps) {
               type="button"
               onClick={() => setOpenIndex(isOpen ? null : index)}
               className={cn(
-                "flex w-full items-center justify-between gap-4 px-6 py-5 text-left",
+                "flex w-full items-center justify-between gap-3 text-left",
+                compact ? "min-h-[3.25rem] px-4 py-3.5" : "gap-4 px-6 py-5",
                 light ? "text-ivory" : "text-dark"
               )}
             >
-              <span className="heading-display text-lg font-medium">
+              <span
+                className={cn(
+                  "heading-display font-medium leading-snug",
+                  compact ? "text-sm" : "text-lg"
+                )}
+              >
                 {item.title}
               </span>
               <motion.span

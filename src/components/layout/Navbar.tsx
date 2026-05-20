@@ -63,9 +63,11 @@ export function Navbar() {
             <span className="heading-display block text-lg font-semibold tracking-wide text-ivory">
               {siteConfig.name}
             </span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-gold-light/80">
-              {siteConfig.tagline}
-            </span>
+            {siteConfig.tagline ? (
+              <span className="text-[10px] uppercase tracking-[0.2em] text-gold-light/80">
+                {siteConfig.tagline}
+              </span>
+            ) : null}
           </motion.div>
         </Link>
 

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Send, Loader2 } from "lucide-react";
+import { Phone, Send, Loader2 } from "lucide-react";
 import { siteConfig } from "@/lib/data";
 import { InstagramIcon } from "@/components/ui/SocialIcons";
 import { SocialLinks } from "@/components/ui/SocialLinks";
@@ -84,9 +84,8 @@ export function Contact() {
                 animate={{ opacity: 1 }}
                 className="break-words py-10 text-center text-base text-gold-light sm:py-12 sm:text-lg"
               >
-                Thank you! Your inquiry was sent to{" "}
-                <span className="break-all">{siteConfig.email}</span>. We&apos;ll reach out within
-                24 hours.
+                Thank you! We received your inquiry and will reach out on WhatsApp or phone
+                within 24 hours.
               </motion.p>
             ) : (
               <>
@@ -155,6 +154,7 @@ export function Contact() {
                     <option value="hindustani">Hindustani Classical</option>
                     <option value="bollywood">Bollywood / Filmy</option>
                     <option value="bhajans">Bhajans & Shlokas</option>
+                    <option value="western">Western Music Vocal</option>
                   </select>
                 </div>
 
@@ -193,7 +193,7 @@ export function Contact() {
                     ) : (
                       <Send size={18} />
                     )}
-                    {status === "loading" ? "Sendingâ€¦" : "Send Message"}
+                    {status === "loading" ? "Sending…" : "Send Message"}
                   </Button>
                 </div>
               </>
@@ -211,17 +211,6 @@ export function Contact() {
                 Contact Details
               </h3>
               <ul className="space-y-4">
-                <li className="flex min-w-0 items-start gap-3 text-ivory/75">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-white/10 bg-white/5 text-gold">
-                    <Mail className="h-3.5 w-3.5" strokeWidth={2} />
-                  </span>
-                  <a
-                    href={`mailto:${siteConfig.email}`}
-                    className="min-w-0 break-all text-sm leading-relaxed hover:text-gold-light sm:text-base"
-                  >
-                    {siteConfig.email}
-                  </a>
-                </li>
                 <li className="flex min-w-0 items-start gap-3 text-ivory/75">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-white/10 bg-white/5 text-gold">
                     <Phone className="h-3.5 w-3.5" strokeWidth={2} />

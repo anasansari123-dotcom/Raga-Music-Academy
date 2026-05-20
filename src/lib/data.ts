@@ -1,10 +1,9 @@
-import type { MusicProgram, PricingTier } from "./types";
+import type { MusicProgram, CourseFee } from "./types";
 import { images } from "./images";
 
 export const siteConfig = {
   name: "RAGA VEDA",
-  tagline: "Online Music Academy",
-  email: "nadhavedamusicschool@gmail.com",
+  tagline: "",
   phone: "+91 91365 93977",
   whatsapp: "https://wa.me/919136593977",
   social: {
@@ -18,6 +17,7 @@ export const siteConfig = {
 export const navLinks = [
   { href: "#about", label: "About" },
   { href: "#teachers", label: "Teacher" },
+  { href: "#affiliations", label: "Affiliations" },
   { href: "#courses", label: "Courses" },
   { href: "#testimonials", label: "Testimonials" },
   { href: "#certification", label: "Certification" },
@@ -69,6 +69,17 @@ export const courses = [
     image: images.devotional,
     icon: "flower2",
     href: "#bhajans",
+  },
+  {
+    id: "western",
+    title: "Western Music Vocal",
+    duration: "6 Months",
+    level: "Beginner Level",
+    description:
+      "Voice culture, solfege, pitch training, rhythm, and beginner-friendly English pop repertoire with certification.",
+    image: images.studentVocalPerformance,
+    icon: "music",
+    href: "#western",
   },
 ];
 
@@ -344,33 +355,18 @@ export const bhajansProgram: MusicProgram = {
   certification: "Certificate in Light Music, Bhajans & Shlokas (upon completion)",
 };
 
-export const classicalPricing: PricingTier[] = [
+export const courseFees: CourseFee[] = [
+  {
+    id: "vocal",
+    title: "Vocal Class",
+    subtitle: "Carnatic, Hindustani, Bollywood & Western — online and offline",
+    priceInr: 2999,
+  },
   {
     id: "6mo",
-    duration: "6 Months",
-    label: "Foundation",
-    actualInr: 14999,
-    actualUsd: 249,
-    offerInr: 11999,
-    offerUsd: 179,
-  },
-  {
-    id: "1yr",
-    duration: "1 Year",
-    label: "Certificate",
-    actualInr: 29999,
-    actualUsd: 499,
-    offerInr: 24999,
-    offerUsd: 349,
-  },
-  {
-    id: "3yr",
-    duration: "3 Years",
-    label: "Advanced Diploma",
-    actualInr: 84999,
-    actualUsd: 1499,
-    offerInr: 74999,
-    offerUsd: 999,
+    title: "6 Months Course",
+    subtitle: "Structured foundation certification program",
+    priceInr: 12999,
   },
 ];
 
@@ -398,6 +394,59 @@ export const bollywoodIntro =
 
 export const bhajansIntro =
   "A serene 6-month journey into devotional music — bhajans, Sanskrit shlokas, and light music with pristine vocal clarity.";
+
+export const westernMusicIntro =
+  "Certificate in Western Music Vocal — beginner-friendly training in voice culture, solfege, pitch, rhythm, and popular English songs.";
+
+export const westernMusicProgram: MusicProgram = {
+  id: "western-beginner",
+  title: "Certificate in Western Music Vocal – Beginner Level",
+  duration: "6 Months",
+  level: "Beginner Level",
+  badge: "Certificate",
+  objectives: [
+    "Build a strong foundation in Western vocal music through voice culture, pitch training, breathing techniques, rhythm understanding, and beginner song performance.",
+  ],
+  curriculum: [
+    "Module 1 – Vocal Foundations & Voice Culture",
+    "Introduction to Western Music Basics",
+    "Breathing Techniques & Posture",
+    "Voice Warm-ups",
+    "Humming Exercises",
+    "Lip Trills & Resonance Practice",
+    "Vowel Practice (A, E, I, O, U)",
+    "Diction & Pronunciation Training",
+    "Vocal Health & Care",
+    "Module 2 – Pitch & Ear Training",
+    "Pitch Alignment Exercises",
+    "Solfege Training (Do Re Mi Fa Sol La Ti)",
+    "Scale Practice",
+    "Ear Training Activities",
+    "Rhythm & Tempo Understanding",
+    "Beat Counting Exercises",
+    "Call & Response Practice",
+    "Module 3 – Vocal Techniques",
+    "Chest Voice & Head Voice Introduction",
+    "Voice Projection",
+    "Dynamics & Expression",
+    "Breath Control Exercises",
+    "Sustaining Notes",
+    "Simple Harmony Introduction",
+    "Performance Confidence Building",
+    "Assessments & Certification",
+    "Practice Sessions",
+    "Monthly Review",
+    "Final Performance Evaluation",
+    "Completion Certificate",
+  ],
+  songs: [
+    "I Want It That Way – Backstreet Boys",
+    "Unstoppable – Sia",
+    "Memories – Maroon 5",
+    "Diamonds – Rihanna",
+  ],
+  certification: "Certificate in Western Music Vocal – Beginner Level",
+};
 
 export type Teacher = {
   name: string;
@@ -527,6 +576,45 @@ export const globalStudents = {
   ],
 };
 
+export type AcademyAffiliation = {
+  id: string;
+  name: string;
+  fullName: string;
+  tradition: string;
+  description: string;
+  logo: string;
+};
+
+export const academyAffiliations: AcademyAffiliation[] = [
+  {
+    id: "tvga-aima",
+    name: "Dr TVG's AIMA",
+    fullName: "Academy of Indian Music and Arts (TVGAima)",
+    tradition: "Indian Classical Music & Arts",
+    description:
+      "Affiliated for structured curriculum, examinations, and recognized certification in Indian classical music.",
+    logo: images.affiliationTvgaAima,
+  },
+  {
+    id: "bridge-academy",
+    name: "Bridge Academy",
+    fullName: "Bridge Academy for Carnatic Music",
+    tradition: "Carnatic Classical",
+    description:
+      "Affiliated for Carnatic vocal training — swara sadhana, varnams, kritis, and progressive certification levels.",
+    logo: images.affiliationBridgeAcademy,
+  },
+  {
+    id: "suro-bharati",
+    name: "Suro Bharati Sangeet Kala Kendra",
+    fullName: "Suro Bharati Sangeet Kala Kendra",
+    tradition: "Hindustani Classical",
+    description:
+      "Affiliated for Hindustani classical vocal — alaap, bandish, taans, and traditional gurukul-style progression.",
+    logo: images.affiliationSuroBharati,
+  },
+];
+
 export const certificationPrograms = [
   {
     title: "Foundation Certificate",
@@ -596,6 +684,15 @@ export const courseCategories: CourseCategory[] = [
     ragaLabel: "Ragas",
     variant: "light",
     image: images.devotional,
+  },
+  {
+    id: "western",
+    title: "Western Music Vocal Certification",
+    subtitle: westernMusicIntro,
+    programs: [westernMusicProgram],
+    ragaLabel: "Ragas",
+    variant: "dark",
+    image: images.bollywoodStudio,
   },
 ];
 
@@ -855,7 +952,7 @@ export const faqs = [
   {
     question: "What are the course fees for Carnatic & Hindustani?",
     answer:
-      "6 Months — Offer: ₹11,999 / $179 USD (Actual: ₹14,999 / $249). 1 Year — Offer: ₹24,999 / $349 USD (Actual: ₹29,999 / $499). 3 Years — Offer: ₹74,999 / $999 USD (Actual: ₹84,999 / $1,499). See our Fees section within Courses for full details.",
+      "Vocal classes start from ₹2,999. Our 6-month foundation course starts from ₹12,999. Book a free demo for detailed plans, batch options, and longer certification pathways.",
   },
   {
     question: "How do online classes work?",

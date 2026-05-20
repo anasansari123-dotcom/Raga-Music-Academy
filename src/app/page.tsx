@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { TeachersSection } from "@/components/sections/TeachersSection";
+import { AffiliationsSection } from "@/components/sections/AffiliationsSection";
 import { CoursesSection } from "@/components/sections/CoursesSection";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { DailyRiyaz } from "@/components/sections/DailyRiyaz";
@@ -22,6 +23,7 @@ export default function Home() {
         <Hero />
         <About />
         <TeachersSection />
+        <AffiliationsSection />
         <GlobalStudentsSection />
         <CoursesSection />
         <WhyChooseUs />

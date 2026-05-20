@@ -13,6 +13,7 @@ const courseLabels: Record<string, string> = {
   hindustani: "Hindustani Classical",
   bollywood: "Bollywood / Filmy",
   bhajans: "Bhajans & Shlokas",
+  western: "Western Music Vocal",
 };
 
 export function formatContactEmailBody(data: ContactInquiry) {
@@ -33,11 +34,11 @@ ${data.message || "(No message provided)"}
 export async function sendContactInquiry(data: ContactInquiry) {
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
-  const to = process.env.CONTACT_TO ?? siteConfig.email;
+  const to = process.env.CONTACT_TO;
 
-  if (!smtpUser || !smtpPass) {
+  if (!smtpUser || !smtpPass || !to) {
     throw new Error(
-      "Email is not configured. Set SMTP_USER and SMTP_PASS in your environment."
+      "Email is not configured. Set SMTP_USER, SMTP_PASS, and CONTACT_TO in your environment."
     );
   }
 

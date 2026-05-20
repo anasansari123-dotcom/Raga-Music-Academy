@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Clock, GraduationCap } from "lucide-react";
 import type { MusicProgram } from "@/lib/types";
-import { buildProgramAccordionItems } from "@/lib/programAccordion";
+import { buildProgramDetailsContent } from "@/lib/programAccordion";
 import { Accordion } from "@/components/ui/Accordion";
 import { cn } from "@/lib/utils";
 
@@ -22,7 +22,7 @@ export function ProgramCard({
 }: ProgramCardProps) {
   const isDark = variant === "dark";
   const ragas = program.ragas ?? program.raags ?? [];
-  const accordionItems = buildProgramAccordionItems(program, ragaLabel);
+  const detailsContent = buildProgramDetailsContent(program, ragaLabel);
 
   return (
     <motion.article
@@ -37,7 +37,7 @@ export function ProgramCard({
           : "border-gold/15 bg-white shadow-md hover:border-gold/30"
       )}
     >
-      <div className="border-b border-inherit p-5 sm:p-6">
+      <div className="flex flex-1 flex-col border-b border-inherit p-5 sm:p-6">
         <div className="flex flex-wrap items-center gap-2">
           <span
             className={cn(
@@ -89,55 +89,61 @@ export function ProgramCard({
           </p>
         )}
 
-        {ragas.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-1.5">
-            {ragas.slice(0, 4).map((r) => (
-              <span
-                key={r}
-                className={cn(
-                  "rounded-md px-2 py-0.5 text-[10px]",
-                  isDark ? "bg-gold/10 text-gold-light/90" : "bg-cream text-gold-dark"
-                )}
-              >
-                🎼 {r}
-              </span>
-            ))}
-            {ragas.length > 4 && (
-              <span
-                className={cn(
-                  "rounded-md px-2 py-0.5 text-[10px]",
-                  isDark ? "text-ivory/40" : "text-dark-soft/50"
-                )}
-              >
-                +{ragas.length - 4} more
-              </span>
-            )}
-          </div>
-        )}
-
-        {program.songs && program.songs.length > 0 && (
-          <p
-            className={cn(
-              "mt-3 text-xs",
-              isDark ? "text-ivory/50" : "text-dark-soft/55"
-            )}
-          >
-            🎵 {program.songs.length} songs in repertoire
-          </p>
-        )}
+        <div className="mt-4 flex min-h-[4.75rem] flex-col justify-end gap-2">
+          {ragas.length > 0 ? (
+            <div className="flex flex-wrap gap-1.5">
+              {ragas.slice(0, 4).map((r) => (
+                <span
+                  key={r}
+                  className={cn(
+                    "rounded-md px-2 py-0.5 text-[10px]",
+                    isDark ? "bg-gold/10 text-gold-light/90" : "bg-cream text-gold-dark"
+                  )}
+                >
+                  🎼 {r}
+                </span>
+              ))}
+              {ragas.length > 4 && (
+                <span
+                  className={cn(
+                    "rounded-md px-2 py-0.5 text-[10px]",
+                    isDark ? "text-ivory/40" : "text-dark-soft/50"
+                  )}
+                >
+                  +{ragas.length - 4} more
+                </span>
+              )}
+            </div>
+          ) : program.songs && program.songs.length > 0 ? (
+            <p
+              className={cn(
+                "text-xs",
+                isDark ? "text-ivory/50" : "text-dark-soft/55"
+              )}
+            >
+              🎵 {program.songs.length} songs in repertoire
+            </p>
+          ) : (
+            <span className="block min-h-[1.25rem]" aria-hidden />
+          )}
+        </div>
       </div>
 
-      <div className="flex flex-1 flex-col p-4 sm:p-5">
+      <div className="shrink-0 p-4 sm:p-5">
         <p
           className={cn(
-            "mb-3 flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider",
+            "mb-3 flex min-h-[1.125rem] items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider",
             isDark ? "text-gold-light/70" : "text-gold-dark"
           )}
         >
-          <GraduationCap size={12} />
-          Full course details
+          <GraduationCap size={12} className="shrink-0" />
+          Course details
         </p>
-        <Accordion items={accordionItems} light={isDark} />
+        <Accordion
+          items={[{ title: "View full course details", content: detailsContent }]}
+          light={isDark}
+          compact
+        />
       </div>
     </motion.article>
   );

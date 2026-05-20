@@ -21,11 +21,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default:
-      "RAGA VEDA | Online Music Academy — Carnatic, Hindustani & Bollywood Vocal",
+      "RAGA VEDA | Music Academy — Carnatic, Hindustani & Bollywood Vocal",
     template: "%s | RAGA VEDA",
   },
   description:
-    "Premium online certification courses in Carnatic, Hindustani & Bollywood vocal music. Awaken your voice through classical music with expert mentors at Raga Veda.",
+    "Premium certification courses in Carnatic, Hindustani & Bollywood vocal music — online and offline. Awaken your voice through classical music with expert mentors at Raga Veda.",
   keywords: [
     "Carnatic vocal classes online",
     "Hindustani classical music",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     apple: "/logo1-removebg-preview.png",
   },
   openGraph: {
-    title: "RAGA VEDA — Online Music Academy",
+    title: "RAGA VEDA — Music Academy",
     description:
-      "Professional online certification courses in Carnatic, Hindustani & Bollywood vocal music.",
+      "Professional certification courses in Carnatic, Hindustani & Bollywood vocal music — online and offline.",
     type: "website",
     locale: "en_IN",
     siteName: "RAGA VEDA",
@@ -52,9 +52,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "RAGA VEDA — Online Music Academy",
+    title: "RAGA VEDA — Music Academy",
     description:
-      "Professional online certification courses in Carnatic, Hindustani & Bollywood vocal music.",
+      "Professional certification courses in Carnatic, Hindustani & Bollywood vocal music — online and offline.",
   },
 };
 

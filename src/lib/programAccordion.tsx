@@ -1,154 +1,145 @@
 import { Award } from "lucide-react";
 import type { MusicProgram } from "./types";
 
-export function buildProgramAccordionItems(
-  program: MusicProgram,
-  ragaLabel: string
-) {
-  const items: { title: string; content: React.ReactNode }[] = [];
+function SectionBlock({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="border-t border-inherit pt-4 first:border-t-0 first:pt-0">
+      <h5 className="mb-2 text-xs font-semibold uppercase tracking-wider text-gold">
+        {title}
+      </h5>
+      {children}
+    </div>
+  );
+}
 
-  if (program.objectives.length) {
-    items.push({
-      title: "Course Objectives",
-      content: (
-        <ul className="space-y-2 text-sm">
-          {program.objectives.map((obj) => (
-            <li key={obj} className="flex gap-2">
-              <span className="shrink-0 text-gold">✓</span>
-              <span>{obj}</span>
-            </li>
-          ))}
-        </ul>
-      ),
-    });
-  }
+function isCurriculumHeader(item: string) {
+  return /^Module \d|^Assessments/i.test(item);
+}
 
-  items.push({
-    title: "Curriculum",
-    content: (
-      <ul className="space-y-2 text-sm">
-        {program.curriculum.map((item) => (
+function CheckList({ items }: { items: string[] }) {
+  return (
+    <ul className="space-y-2 text-sm">
+      {items.map((item) =>
+        isCurriculumHeader(item) ? (
+          <li
+            key={item}
+            className="pt-3 text-xs font-bold uppercase tracking-wider text-gold first:pt-0"
+          >
+            {item}
+          </li>
+        ) : (
           <li key={item} className="flex gap-2">
             <span className="shrink-0 text-gold">✓</span>
             <span>{item}</span>
           </li>
-        ))}
-      </ul>
-    ),
-  });
+        )
+      )}
+    </ul>
+  );
+}
 
+function TagPills({
+  items,
+  prefix,
+  className,
+}: {
+  items: string[];
+  prefix: string;
+  className: string;
+}) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {items.map((item) => (
+        <span
+          key={item}
+          className={`rounded-full border px-2.5 py-1 text-xs ${className}`}
+        >
+          {prefix} {item}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+/** All program details in one panel (single dropdown per course). */
+export function buildProgramDetailsContent(
+  program: MusicProgram,
+  ragaLabel: string
+) {
   const ragas = program.ragas ?? program.raags;
-  if (ragas?.length) {
-    items.push({
-      title: `${ragaLabel} Covered`,
-      content: (
-        <div className="flex flex-wrap gap-2">
-          {ragas.map((r) => (
-            <span
-              key={r}
-              className="rounded-full border border-gold/25 bg-gold/10 px-2.5 py-1 text-xs"
-            >
-              🎼 {r}
-            </span>
-          ))}
-        </div>
-      ),
-    });
-  }
 
-  if (program.compositions?.length) {
-    items.push({
-      title: "Compositions",
-      content: (
-        <ul className="space-y-2 text-sm">
-          {program.compositions.map((c) => (
-            <li key={c} className="flex gap-2">
-              <span className="shrink-0 text-gold">✓</span>
-              <span>{c}</span>
-            </li>
-          ))}
-        </ul>
-      ),
-    });
-  }
+  return (
+    <div className="space-y-4">
+      {program.objectives.length > 0 && (
+        <SectionBlock title="Course Objectives">
+          <CheckList items={program.objectives} />
+        </SectionBlock>
+      )}
 
-  if (program.songs?.length) {
-    items.push({
-      title: "Songs Covered",
-      content: (
-        <div className="flex flex-wrap gap-2">
-          {program.songs.map((s) => (
-            <span
-              key={s}
-              className="rounded-full border border-magenta/25 bg-magenta/10 px-2.5 py-1 text-xs"
-            >
-              🎵 {s}
-            </span>
-          ))}
-        </div>
-      ),
-    });
-  }
+      <SectionBlock title="Curriculum">
+        <CheckList items={program.curriculum} />
+      </SectionBlock>
 
-  if (program.courseContent?.length) {
-    items.push({
-      title: "Course Content",
-      content: (
-        <div className="flex flex-wrap gap-2">
-          {program.courseContent.map((c) => (
-            <span
-              key={c}
-              className="rounded-full border border-purple/20 bg-purple/10 px-2.5 py-1 text-xs"
-            >
-              🎵 {c}
-            </span>
-          ))}
-        </div>
-      ),
-    });
-  }
+      {ragas && ragas.length > 0 && (
+        <SectionBlock title={`${ragaLabel} Covered`}>
+          <TagPills
+            items={ragas}
+            prefix="🎼"
+            className="border-gold/25 bg-gold/10"
+          />
+        </SectionBlock>
+      )}
 
-  if (program.skills?.length) {
-    items.push({
-      title: "Skills Developed",
-      content: (
-        <ul className="space-y-2 text-sm">
-          {program.skills.map((s) => (
-            <li key={s} className="flex gap-2">
-              <span className="shrink-0 text-gold">✓</span>
-              <span>{s}</span>
-            </li>
-          ))}
-        </ul>
-      ),
-    });
-  }
+      {program.compositions && program.compositions.length > 0 && (
+        <SectionBlock title="Compositions">
+          <CheckList items={program.compositions} />
+        </SectionBlock>
+      )}
 
-  if (program.performance?.length) {
-    items.push({
-      title: "Performance & Opportunities",
-      content: (
-        <ul className="space-y-2 text-sm">
-          {program.performance.map((p) => (
-            <li key={p} className="flex gap-2">
-              <span className="shrink-0 text-gold">✓</span>
-              <span>{p}</span>
-            </li>
-          ))}
-        </ul>
-      ),
-    });
-  }
+      {program.songs && program.songs.length > 0 && (
+        <SectionBlock title="Songs Covered">
+          <TagPills
+            items={program.songs}
+            prefix="🎵"
+            className="border-magenta/25 bg-magenta/10"
+          />
+        </SectionBlock>
+      )}
 
-  items.push({
-    title: "Certification",
-    content: (
-      <p className="flex items-start gap-2 text-sm font-medium">
-        <Award size={16} className="mt-0.5 shrink-0 text-gold" />
-        <span>🎓 {program.certification}</span>
-      </p>
-    ),
-  });
+      {program.courseContent && program.courseContent.length > 0 && (
+        <SectionBlock title="Course Content">
+          <TagPills
+            items={program.courseContent}
+            prefix="🎵"
+            className="border-purple/20 bg-purple/10"
+          />
+        </SectionBlock>
+      )}
 
-  return items;
+      {program.skills && program.skills.length > 0 && (
+        <SectionBlock title="Skills Developed">
+          <CheckList items={program.skills} />
+        </SectionBlock>
+      )}
+
+      {program.performance && program.performance.length > 0 && (
+        <SectionBlock title="Performance & Opportunities">
+          <CheckList items={program.performance} />
+        </SectionBlock>
+      )}
+
+      <SectionBlock title="Certification">
+        <p className="flex items-start gap-2 text-sm font-medium">
+          <Award size={16} className="mt-0.5 shrink-0 text-gold" />
+          <span>🎓 {program.certification}</span>
+        </p>
+      </SectionBlock>
+    </div>
+  );
 }

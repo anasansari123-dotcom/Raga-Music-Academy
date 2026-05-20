@@ -15,7 +15,7 @@ export function CoursesSection() {
         <SectionHeading
           eyebrow="Courses We Offer"
           title="Certification Programs"
-          subtitle="Every program below includes full curriculum, ragas, compositions, and certification details — expand any card to view complete information."
+          subtitle="Every program includes objectives, curriculum, ragas, and certification — tap one dropdown on each card to view everything."
         />
 
         <motion.div className="space-y-16">
@@ -59,7 +59,7 @@ export function CoursesSection() {
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="grid items-stretch gap-6 lg:grid-cols-2"
+                    className="grid items-stretch gap-6 lg:grid-cols-2 [&>*]:h-full"
                   >
                     <ProgramCard
                       program={category.programs[0]}
@@ -84,7 +84,7 @@ export function CoursesSection() {
                 ) : (
                   <motion.div
                     className={cn(
-                      "grid gap-6",
+                      "grid items-stretch gap-6",
                       category.programs.length === 2
                         ? "md:grid-cols-2"
                         : "md:grid-cols-2 xl:grid-cols-3"
