@@ -93,6 +93,15 @@ export function PricingSection({ embedded = false }: PricingSectionProps) {
                   }`}
                 >
                   from {formatInr(fee.priceInr)}
+                  {fee.priceSuffix ? (
+                    <span
+                      className={`mt-1 block text-base font-semibold tracking-normal sm:text-lg ${
+                        highlighted ? "text-ivory/75" : "text-dark-soft/70"
+                      }`}
+                    >
+                      {fee.priceSuffix}
+                    </span>
+                  ) : null}
                 </p>
 
                 <div className="mt-8">

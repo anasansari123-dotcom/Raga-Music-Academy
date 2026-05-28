@@ -43,7 +43,8 @@ function TeacherPortrait({ teacher }: { teacher: Teacher }) {
             (teacher.founder ? "object-[center_20%]" : "object-center")
         )}
         priority={teacher.founder}
-        unoptimized
+        loading={teacher.founder ? undefined : "lazy"}
+        quality={teacher.founder ? 85 : 75}
       />
       <motion.div
         className="pointer-events-none absolute inset-0 bg-gradient-to-t from-purple-deep/50 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-white/30"

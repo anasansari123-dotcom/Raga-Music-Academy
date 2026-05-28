@@ -66,7 +66,7 @@ export function DailyRiyaz() {
                 >
                   <MessageCircle className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
                   <div>
-                    <h4 className="font-semibold text-ivory">{practice.title}</h4>
+                    <h3 className="font-semibold text-ivory">{practice.title}</h3>
                     <p className="mt-1 text-sm text-ivory/60">{practice.description}</p>
                   </div>
                 </motion.div>
@@ -131,7 +131,7 @@ export function DailyRiyaz() {
                 loop
                 controls
                 playsInline
-                preload="auto"
+                preload="metadata"
                 poster={images.vocalPerformance}
                 className="aspect-video w-full bg-dark object-cover"
                 aria-label="Female vocalist performing on luxury stage"
@@ -140,6 +140,13 @@ export function DailyRiyaz() {
                 <source
                   src="/Female_vocalist_on_luxury_stage_202605160153.mp4"
                   type="video/mp4"
+                />
+                <track
+                  kind="captions"
+                  src="/captions-empty.vtt"
+                  srcLang="en"
+                  label="English"
+                  default
                 />
               </video>
             </motion.div>

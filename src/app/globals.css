@@ -124,3 +124,26 @@ body {
 .heading-display {
   font-family: var(--font-playfair), Georgia, serif;
 }
+
+@keyframes sound-wave-pulse {
+  0%,
+  100% {
+    height: 8px;
+  }
+  50% {
+    height: var(--sw-mid, 20px);
+  }
+}
+
+.sound-wave-bar {
+  height: 8px;
+  animation: sound-wave-pulse 0.8s ease-in-out infinite;
+  animation-delay: var(--sw-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sound-wave-bar {
+    animation: none;
+    height: 12px;
+  }
+}

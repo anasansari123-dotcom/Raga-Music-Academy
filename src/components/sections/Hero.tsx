@@ -1,11 +1,19 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { MusicParticles } from "@/components/ui/MusicParticles";
 import { SoundWave } from "@/components/ui/SoundWave";
-import { heroVideoSrc } from "@/lib/images";
+import { heroVideoSrc, images } from "@/lib/images";
+
+const MusicParticles = dynamic(
+  () =>
+    import("@/components/ui/MusicParticles").then((m) => ({
+      default: m.MusicParticles,
+    })),
+  { ssr: false }
+);
 
 export function Hero() {
   return (
@@ -19,7 +27,8 @@ export function Hero() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
+          poster={images.heroPoster}
           className="h-full w-full object-cover"
           aria-hidden
         >
@@ -50,26 +59,12 @@ export function Hero() {
           </span>
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="heading-display mx-auto max-w-5xl text-4xl font-semibold leading-[1.15] text-ivory sm:text-5xl md:text-6xl lg:text-7xl"
-        >
-          <span className="block overflow-hidden">
-            <motion.span
-              className="inline-block"
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              Awaken Your Voice
-            </motion.span>
-          </span>
+        <h1 className="heading-display mx-auto max-w-5xl text-4xl font-semibold leading-[1.15] text-ivory sm:text-5xl md:text-6xl lg:text-7xl">
+          <span className="block">Awaken Your Voice</span>
           <span className="mt-2 block text-gradient-gold">
             Through Classical Music
           </span>
-        </motion.h1>
+        </h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}

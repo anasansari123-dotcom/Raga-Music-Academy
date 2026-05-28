@@ -21,4 +21,5 @@ export type CourseFee = {
   title: string;
   subtitle: string;
   priceInr: number;
+  priceSuffix?: string;
 };

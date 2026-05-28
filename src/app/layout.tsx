@@ -37,9 +37,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: siteUrl,
+  },
   icons: {
-    icon: "/logo1-removebg-preview.png",
-    apple: "/logo1-removebg-preview.png",
+    icon: "/logo.svg",
+    apple: "/logo.svg",
   },
   openGraph: {
     title: "RAGA VEDA — Music Academy",

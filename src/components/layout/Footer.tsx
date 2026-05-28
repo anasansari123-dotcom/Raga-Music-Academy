@@ -38,9 +38,9 @@ export function Footer() {
           </div>
 
           <div className="min-w-0">
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-gold-light">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-gold-light">
               Quick Links
-            </h4>
+            </h3>
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -56,9 +56,9 @@ export function Footer() {
           </div>
 
           <div className="min-w-0">
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-gold-light">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-gold-light">
               Courses
-            </h4>
+            </h3>
             <ul className="space-y-2">
               {courses.map((course) => (
                 <li key={course.id} className="min-w-0">
@@ -74,9 +74,9 @@ export function Footer() {
           </div>
 
           <div className="min-w-0">
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-gold-light">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-gold-light">
               Connect
-            </h4>
+            </h3>
             <SocialLinks />
           </div>
         </div>

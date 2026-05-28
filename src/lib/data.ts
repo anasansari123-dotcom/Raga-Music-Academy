@@ -3,7 +3,7 @@ import { images } from "./images";
 
 export const siteConfig = {
   name: "RAGA VEDA",
-  tagline: "",
+  tagline: "Music Academy",
   phone: "+91 91365 93977",
   whatsapp: "https://wa.me/919136593977",
   social: {
@@ -360,7 +360,8 @@ export const courseFees: CourseFee[] = [
     id: "vocal",
     title: "Vocal Class",
     subtitle: "Carnatic, Hindustani, Bollywood & Western — online and offline",
-    priceInr: 2999,
+    priceInr: 2499,
+    priceSuffix: "per month",
   },
   {
     id: "6mo",
@@ -468,8 +469,8 @@ export type Teacher = {
 
 export const aditiGovindan: Teacher = {
   name: "Aditi Govindan",
-  role: "Advanced Carnatic Music Vocal Trainer",
-  badge: "Faculty Head & Founder",
+  role: "Carnatic Music Vocal Trainer",
+  badge: "Faculty Head",
   tagline: "Tradition • Technique • Soulful Learning",
   location: "Chennai, Tamil Nadu, India",
   languages: ["Tamil", "English", "Hindi"],
@@ -477,23 +478,24 @@ export const aditiGovindan: Teacher = {
   imagePosition: "object-[center_25%]",
   imageFit: "cover",
   highlights: [
-    "Diploma in Carnatic Music — Delhi University (2016)",
-    "10+ Years Classical Training",
-    "Guru Smt. Nirmala Bhaskaran",
+    "Diploma in Carnatic Music — University of Madras",
+    "15+ Years of Experience",
+    "Intermediate & Advanced Level Students",
   ],
-  bio: "Dedicated Carnatic vocal music educator with over 10 years of rigorous classical training and performance exposure. Experienced in nurturing beginners with strong fundamentals, voice culture, and traditional repertoire — delivering structured, inspiring, and disciplined music education online and offline.",
+  bio: "Faculty Head and Carnatic vocal educator with a Diploma in Carnatic Music from the University of Madras and 15+ years of rigorous classical training and performance. Private Carnatic vocal classes since 2019. Currently training only Intermediate and Advanced level students — with structured repertoire, voice culture, manodharma, and concert-oriented progression.",
   credentials: [
+    "Diploma in Carnatic Music — University of Madras",
+    "Private Carnatic vocal classes (2019 – Present)",
+    "Currently training only Intermediate & Advanced level students",
     "Advanced training under Guru Smt. Nirmala Bhaskaran — voice culture, manodharma & classical compositions",
-    "Private Carnatic vocal classes for children & beginners (2024 – Present)",
-    "Curriculum: slokas, bhajans, varnams & kritis with shruti alignment and laya control",
-    "Performances at cultural & temple events in Chennai and Delhi — Navratri Utsavam & Tamil Sangam programs",
+    "Performances at cultural & temple events in Chennai — Navratri Utsavam & Tamil Sangam programs",
   ],
   founder: true,
 };
 
 export const kirtiMishra: Teacher = {
   name: "Kirti Mishra",
-  role: "Hindustani Classical Music Teacher",
+  role: "Beginner to Advanced Hindustani Classical Trainer",
   badge: "Senior Faculty",
   tagline: "Hindustani Classical • Bollywood Vocal • Music Theory",
   location: "Jamnagar, Gujarat, India",
@@ -502,32 +504,40 @@ export const kirtiMishra: Teacher = {
   imagePosition: "object-[center_30%]",
   imageFit: "cover",
   highlights: [
+    "15+ Years of Experience",
     "Visharad in Vocal — Gandharva Mahavidyalaya, Mumbai",
-    "Level 3 Advanced — Hindustani & Bollywood",
-    "M.Com — MKHS Gujarati College, Indore",
+    "Beginner to Advanced — Hindustani Classical",
   ],
-  bio: "A passionate music educator with extensive experience in Hindustani classical and Bollywood vocal training. Kirti Mishra inspires students through engaging one-on-one and group lessons — covering swar sadhana, alankars, ragas, taans, music theory, sight-reading, and performance — while fostering discipline, creativity, and lifelong musical appreciation.",
+  bio: "Hindustani music teacher with 15+ years of experience in classical and Bollywood vocal training. Kirti Mishra guides students from beginner to advanced levels through swar sadhana, alankars, ragas, taans, bandish, music theory, and performance — with structured one-on-one and group lessons.",
   credentials: [
-    "Swar Jhankar Academy (Self Employed) — Online music classes, Jamnagar (2025 – Present)",
-    "Music Teacher, RSCC Music Class — instrumental & vocal technique, theory & ear training (2025 – Present)",
     "Visharad in Vocal — Akhil Bhartiya Gandharva Mahavidyalaya Mandal, Mumbai (2018 – 2024)",
-    "Level 3rd Advanced in Hindustani classical & Bollywood singing — Amit Tomar Music Academy, Mumbai (2023 – 24)",
-    "PGDCA — Rajeev Gandhi Computer Saksharta Mission (2008 – 09, A+ 90%)",
+    "Level 3 Advanced in Hindustani classical & Bollywood singing — Amit Tomar Music Academy, Mumbai (2023 – 24)",
+    "Swar Jhankar Academy — Hindustani & Bollywood vocal classes, Jamnagar (2025 – Present)",
+    "Music Teacher, RSCC Music Class — vocal technique, theory & ear training (2025 – Present)",
     "Performances: Tagore Hall Ahmedabad, Reliance Greens Bhajan Sandhya, Namaste Jamnagar 2025 (Raag Megh Malhar)",
   ],
 };
 
 export const vineelaMadhumala: Teacher = {
   name: "Vineela Madhumala",
-  role: "Carnatic Music Vocal Teacher",
+  role: "Telugu Carnatic Music Vocal Trainer",
   badge: "Lead Faculty",
   languages: ["Telugu", "English", "Hindi"],
   image: "/teachers/vineela-madhumala.jpeg",
   imageRight: true,
   imagePosition: "object-[center_12%]",
   imageFit: "cover",
-  highlights: ["Swara & Gamaka Training", "Varnams & Kritis", "Telugu-Speaking Learners"],
-  bio: "Our lead Carnatic faculty guides students through swara training, gamakas, varnams, and kriti study with clear daily structure. Classes are especially welcoming for Telugu-speaking learners who want classical vocal training in their comfort language.",
+  highlights: [
+    "10+ Years — Carnatic Music Vocal",
+    "Beginner to Intermediate Level",
+    "Telugu Music & Annamayya Kirthanas",
+  ],
+  bio: "Telugu Carnatic music vocal trainer with 10+ years of experience. Specialised in Telugu repertoire and Annamayya kirthanas, guiding beginner to intermediate students through swara training, gamakas, varnams, and kriti study — especially for Telugu-speaking learners in their comfort language.",
+  credentials: [
+    "Swara & gamaka training — varnams, kritis & Telugu repertoire",
+    "Specialised in Annamayya kirthanas and devotional Telugu compositions",
+    "Beginner to intermediate Carnatic vocal — structured daily riyaz",
+  ],
 };
 
 /** Founder listed first */
@@ -582,6 +592,7 @@ export type AcademyAffiliation = {
   fullName: string;
   tradition: string;
   description: string;
+  highlights: string[];
   logo: string;
 };
 
@@ -589,10 +600,15 @@ export const academyAffiliations: AcademyAffiliation[] = [
   {
     id: "tvga-aima",
     name: "Dr TVG's AIMA",
-    fullName: "Academy of Indian Music and Arts (TVGAima)",
-    tradition: "Indian Classical Music & Arts",
+    fullName: "Academy of Indian Music and Arts (TVG AIMA)",
+    tradition: "Music, Dance & Arts",
     description:
-      "Affiliated for structured curriculum, examinations, and recognized certification in Indian classical music.",
+      "Chennai-based music academy with many branches — offline classes across dance, music, instruments, and percussion.",
+    highlights: [
+      "Offline classes",
+      "Music academy located in Chennai — many branches",
+      "Various courses in Dance, Music, Instruments and Percussions",
+    ],
     logo: images.affiliationTvgaAima,
   },
   {
@@ -601,16 +617,32 @@ export const academyAffiliations: AcademyAffiliation[] = [
     fullName: "Bridge Academy for Carnatic Music",
     tradition: "Carnatic Classical",
     description:
-      "Affiliated for Carnatic vocal training — swara sadhana, varnams, kritis, and progressive certification levels.",
+      "Online and offline grade exams in Carnatic music from anywhere in the world — with structured curriculum and certification.",
+    highlights: [
+      "Online / offline grade exams in Carnatic music — from anywhere in the world",
+      "Structured curriculum for grade exams",
+      "Study materials and books provided",
+      "Exams online or offline",
+      "Exam centres throughout India, Malaysia, and Sri Lanka",
+      "Theory and practical exams",
+      "Get certified from Bridge Academy and become a registered teacher",
+    ],
     logo: images.affiliationBridgeAcademy,
   },
   {
     id: "suro-bharati",
     name: "Suro Bharati Sangeet Kala Kendra",
-    fullName: "Suro Bharati Sangeet Kala Kendra",
+    fullName: "Surobharati Sangeet Kala Kendra",
     tradition: "Hindustani Classical",
     description:
-      "Affiliated for Hindustani classical vocal — alaap, bandish, taans, and traditional gurukul-style progression.",
+      "Hindustani classical music courses, workshops, and diploma examinations through India's largest cultural examining organizations.",
+    highlights: [
+      "Hindustani classical music courses",
+      "Workshops",
+      "Music competitions",
+      "Sangeet diploma and Visharad exams",
+      "Affiliated with India's largest cultural examining organizations",
+    ],
     logo: images.affiliationSuroBharati,
   },
 ];

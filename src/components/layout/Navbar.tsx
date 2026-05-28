@@ -14,16 +14,29 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      const heroEnd = window.innerHeight * 0.85;
-      setScrolled(window.scrollY > heroEnd);
+    let ticking = false;
+    let heroEnd = 0;
+
+    const updateHeroEnd = () => {
+      heroEnd = window.innerHeight * 0.85;
     };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > heroEnd);
+        ticking = false;
+      });
+    };
+
+    updateHeroEnd();
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
+    window.addEventListener("resize", updateHeroEnd, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", updateHeroEnd);
     };
   }, []);
 

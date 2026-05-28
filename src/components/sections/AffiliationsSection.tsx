@@ -37,9 +37,9 @@ export function AffiliationsSection() {
               variants={fadeUp}
               custom={i}
               whileHover={{ y: -6 }}
-              className="group flex flex-col items-center rounded-3xl border border-gold/20 bg-white p-8 text-center shadow-lg transition-shadow hover:border-gold/40 hover:shadow-xl"
+              className="group flex h-full flex-col items-center rounded-3xl border border-gold/20 bg-white p-8 text-center shadow-lg transition-shadow hover:border-gold/40 hover:shadow-xl"
             >
-              <div className="relative mb-6 flex h-36 w-36 items-center justify-center rounded-full bg-gradient-to-br from-cream to-white p-4 shadow-inner ring-2 ring-gold/20 transition-transform duration-300 group-hover:scale-105 sm:h-40 sm:w-40">
+              <div className="relative mb-6 flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-cream to-white p-4 shadow-inner ring-2 ring-gold/20 transition-transform duration-300 group-hover:scale-105 sm:h-36 sm:w-36">
                 <div className="relative h-full w-full overflow-hidden rounded-full">
                   <Image
                     src={affiliation.logo}
@@ -75,6 +75,17 @@ export function AffiliationsSection() {
               <p className="mt-4 text-sm leading-relaxed text-dark-soft/80">
                 {affiliation.description}
               </p>
+              <ul className="mt-4 w-full space-y-2.5 border-t border-gold/15 pt-4 text-left">
+                {affiliation.highlights.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-2 text-xs leading-relaxed text-dark-soft/85 sm:text-sm"
+                  >
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </motion.article>
           ))}
         </motion.div>

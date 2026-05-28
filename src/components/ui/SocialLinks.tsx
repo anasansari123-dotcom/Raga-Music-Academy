@@ -58,26 +58,26 @@ export function SocialLinks({
     : socialLinkItems;
 
   return (
-    <div className={cn("flex flex-wrap items-center gap-2", className)} role="list">
+    <ul className={cn("flex flex-wrap items-center gap-2", className)}>
       {items.map((item) => (
-        <a
-          key={item.platform}
-          href={item.href}
-          target={item.platform === "email" ? undefined : "_blank"}
-          rel={item.platform === "email" ? undefined : "noopener noreferrer"}
-          aria-label={item.label}
-          role="listitem"
-          className={cn(
-            "flex h-9 w-9 items-center justify-center rounded-lg border transition-all duration-200",
-            isFooter
-              ? "border-white/10 bg-white/5 text-ivory/75 backdrop-blur-sm"
-              : "border-purple/15 bg-white text-dark-soft/70 shadow-sm",
-            hoverStyles[item.platform]
-          )}
-        >
-          <SocialPlatformIcon platform={item.platform} />
-        </a>
+        <li key={item.platform}>
+          <a
+            href={item.href}
+            target={item.platform === "email" ? undefined : "_blank"}
+            rel={item.platform === "email" ? undefined : "noopener noreferrer"}
+            aria-label={item.label}
+            className={cn(
+              "flex h-9 w-9 items-center justify-center rounded-lg border transition-all duration-200",
+              isFooter
+                ? "border-white/10 bg-white/5 text-ivory/75 backdrop-blur-sm"
+                : "border-purple/15 bg-white text-dark-soft/70 shadow-sm",
+              hoverStyles[item.platform]
+            )}
+          >
+            <SocialPlatformIcon platform={item.platform} />
+          </a>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
