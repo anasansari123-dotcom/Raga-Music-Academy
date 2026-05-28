@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SoundWave } from "@/components/ui/SoundWave";
-import { heroVideoSrc, images } from "@/lib/images";
+import { heroVideoSrc } from "@/lib/images";
 
 const MusicParticles = dynamic(
   () =>
@@ -27,8 +27,7 @@ export function Hero() {
           muted
           loop
           playsInline
-          preload="metadata"
-          poster={images.heroPoster}
+          preload="auto"
           className="h-full w-full object-cover"
           aria-hidden
         >
