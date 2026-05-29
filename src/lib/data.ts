@@ -14,6 +14,69 @@ export const siteConfig = {
   },
 };
 
+export const aboutContent = {
+  title: "About Raga Veda Music Academy",
+  intro: [
+    "At Raga Veda Music Academy, we believe that music is not just an art form — it is a journey of confidence, creativity, discipline, and self-expression. Our mission is to nurture every student with the right guidance, structured training, and encouragement to help them discover their true musical potential.",
+  ],
+  founder: {
+    name: "Ms. Aditi Govindan",
+    role: "Advanced Level Carnatic Music Artist, Performer & Vocal Trainer",
+    bio: "Founded by Ms. Aditi Govindan, the academy was established with a vision to provide high-quality and systematic music education for students of all age groups. She has received guidance under esteemed Gurus Smt. Jaishree Ranganathan, Smt. Nirmala Bhaskaran, and renowned Carnatic musician Vidwan Neyveli Santhanagopalan. With years of performance and teaching experience, she is deeply committed to preserving the rich tradition of Indian classical music while making learning accessible, enjoyable, and confidence-building for modern learners.",
+    image: "/teachers/aditi-govindan.jpeg",
+  },
+  teachingApproach:
+    "At Raga Veda Music Academy, we understand that every student learns differently. Our specially designed teaching methods focus on step-by-step learning for children, adults, beginners, advanced learners, and special children. We emphasize not only learning songs, but also building strong fundamentals in shruti alignment, voice culture, rhythm, expression, and stage confidence.",
+  trainingOffered: [
+    "Carnatic Classical Vocal",
+    "Hindustani Classical Vocal",
+    "Filmy / Bollywood Music",
+    "Western Vocal Music",
+  ],
+  studentBenefits: [
+    "Structured & Systematic Training",
+    "Voice Culture & Vocal Development",
+    "Pitch / Shruti Correction",
+    "Personalized Feedback & Guidance",
+    "Performance Opportunities",
+    "Confidence Development Through Music",
+    "Certification & Grade Exam Preparation",
+  ],
+  certifications: {
+    title: "Internationally Recognized Certifications & Affiliations",
+    intro:
+      "Raga Veda Music Academy is proudly affiliated with prestigious organizations dedicated to the promotion and preservation of Indian Fine Arts.",
+    partners: [
+      {
+        name: "Academy of Indian Music & Arts (AIMA)",
+        description:
+          "Founded by Dr. T. V. Gopalakrishnan, AIMA is a reputed charitable and cultural organization recognized by the Government of India with 80G Certification. The institution has been actively promoting Indian music, arts, and cultural education globally for several decades.",
+      },
+      {
+        name: "Bridge Academy — International Grade Examination System",
+        description:
+          "Our students benefit from Bridge Academy's internationally recognized 8 Grade Examination System for Indian Fine Arts — a structured certification framework with a progressive and professional learning pathway similar to internationally recognized music grading systems.",
+        highlights: [
+          "Learn music in a systematic and organized manner",
+          "Build strong technical and theoretical foundations",
+          "Gain internationally recognized certifications",
+          "Track musical progress step-by-step",
+          "Prepare confidently for performances and higher-level examinations",
+        ],
+        note: "Bridge Academy's globally implemented certification structure is followed by a large network of reputed teachers and institutions across multiple countries, helping students receive valuable recognition for their dedication and training.",
+      },
+      {
+        name: "Suro Bharati Sangeet Kala Kendra",
+        description:
+          "Our affiliated certification system is also connected with respected cultural institutions such as Suro Bharati Sangeet Kala Kendra, which has received academic equivalence from Indira Kala Sangit Vishwavidyalaya (IKSV) — one of India's prestigious universities dedicated to music and fine arts education.",
+      },
+    ],
+  },
+  closing:
+    "At Raga Veda Music Academy, we are committed to creating a positive, inspiring, and supportive learning environment where students not only learn music but also develop confidence, discipline, creativity, and a lifelong appreciation for the art. Whether you are a beginner starting your musical journey or an aspiring performer looking for professional training, we warmly welcome you to become a part of our musical family and grow with the right guidance, mentorship, and opportunities.",
+  stat: { value: "15+", label: "Years of Musical Excellence" },
+};
+
 export const navLinks = [
   { href: "#about", label: "About" },
   { href: "#teachers", label: "Teacher" },
@@ -600,11 +663,14 @@ export const academyAffiliations: AcademyAffiliation[] = [
   {
     id: "tvga-aima",
     name: "Dr TVG's AIMA",
-    fullName: "Academy of Indian Music and Arts (TVG AIMA)",
+    fullName: "Academy of Indian Music & Arts (AIMA)",
     tradition: "Music, Dance & Arts",
     description:
-      "Chennai-based music academy with many branches — offline classes across dance, music, instruments, and percussion.",
+      "Affiliated with AIMA — Dr T V Gopalakrishan, Founder Trustee and Chairman. Chennai-based academy with many branches offering offline classes in dance, music, instruments, and percussion.",
     highlights: [
+      "Affiliated with AIMA — Dr T V Gopalakrishan, Founder Trustee and Chairman",
+      "Registered as a Charitable Trust and christened as the Academy of Indian Music & Arts (AIMA) on June 27, 1984",
+      "Recognized by the Government of India as an NGO with 80G certification and granted exemption for charitable and cultural promotion activities",
       "Offline classes",
       "Music academy located in Chennai — many branches",
       "Various courses in Dance, Music, Instruments and Percussions",
