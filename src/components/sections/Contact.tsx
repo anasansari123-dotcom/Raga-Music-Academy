@@ -9,7 +9,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { PaymentCard } from "@/components/ui/PaymentCard";
 import { fadeUp } from "@/lib/motion";
-import { getPaymentPageUrl } from "@/lib/payment";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -265,10 +264,7 @@ export function Contact() {
               </ul>
             </motion.div>
 
-            <PaymentCard
-              paymentUrl={getPaymentPageUrl()}
-              className="h-fit lg:sticky lg:top-28"
-            />
+            <PaymentCard className="h-fit lg:sticky lg:top-28" />
           </motion.div>
         </div>
       </div>

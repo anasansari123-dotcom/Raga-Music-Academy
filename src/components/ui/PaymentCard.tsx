@@ -2,18 +2,18 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Check, Copy, Link2, QrCode, Share2 } from "lucide-react";
+import { Check, Copy, QrCode } from "lucide-react";
 import { siteConfig } from "@/lib/data";
-import { getPaymentWhatsAppShareUrl } from "@/lib/payment";
+import { getPaymentPageUrl } from "@/lib/payment";
 import { cn } from "@/lib/utils";
 
 type PaymentCardProps = {
   className?: string;
-  paymentUrl: string;
   id?: string;
 };
 
-export function PaymentCard({ className, paymentUrl, id = "payment" }: PaymentCardProps) {
+export function PaymentCard({ className, id = "payment" }: PaymentCardProps) {
+  const paymentUrl = getPaymentPageUrl();
   const [copied, setCopied] = useState(false);
   const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -33,8 +33,6 @@ export function PaymentCard({ className, paymentUrl, id = "payment" }: PaymentCa
       window.prompt("Copy this payment link:", paymentUrl);
     }
   };
-
-  const whatsappSharePaymentLink = getPaymentWhatsAppShareUrl(paymentUrl);
 
   return (
     <div id={id} className={cn("glass w-full min-w-0 rounded-2xl p-5 sm:p-6", className)}>
@@ -62,43 +60,24 @@ export function PaymentCard({ className, paymentUrl, id = "payment" }: PaymentCa
       </p>
 
       <div className="mt-5 space-y-3 border-t border-white/10 pt-5">
-        <p className="text-xs font-semibold uppercase tracking-wider text-ivory/50">
-          {siteConfig.payment.linkLabel}
-        </p>
-        <div className="flex min-w-0 items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-3 py-2.5">
-          <Link2 size={16} className="shrink-0 text-gold-light/80" aria-hidden />
-          <p className="min-w-0 flex-1 truncate text-sm text-ivory/85" suppressHydrationWarning>
-            {paymentUrl}
-          </p>
-          <button
-            type="button"
-            onClick={copyPaymentLink}
-            className="shrink-0 rounded-lg border border-gold/30 bg-gold/15 px-3 py-1.5 text-xs font-semibold text-gold-light transition-colors hover:bg-gold/25"
-            aria-label="Copy payment link"
-          >
-            {copied ? (
-              <span className="inline-flex items-center gap-1">
-                <Check size={14} />
-                Copied
-              </span>
-            ) : (
-              <span className="inline-flex items-center gap-1">
-                <Copy size={14} />
-                Copy
-              </span>
-            )}
-          </button>
-        </div>
-
-        <a
-          href={whatsappSharePaymentLink}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          type="button"
+          onClick={copyPaymentLink}
           className="flex w-full items-center justify-center gap-2 rounded-xl border border-gold/30 bg-gold/15 px-4 py-2.5 text-sm font-semibold text-gold-light transition-colors hover:bg-gold/25"
+          aria-label="Copy payment link"
         >
-          <Share2 size={16} />
-          Share payment link on WhatsApp
-        </a>
+          {copied ? (
+            <>
+              <Check size={16} />
+              Copied!
+            </>
+          ) : (
+            <>
+              <Copy size={16} />
+              Copy payment link
+            </>
+          )}
+        </button>
 
         <a
           href={siteConfig.whatsapp}

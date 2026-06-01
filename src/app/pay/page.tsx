@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PaymentCard } from "@/components/ui/PaymentCard";
-import { getPaymentPageUrl } from "@/lib/payment";
 import { siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -12,8 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default function PayPage() {
-  const paymentUrl = getPaymentPageUrl();
-
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-royal">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(157,78,221,0.25),transparent_60%)]" />
@@ -41,7 +38,7 @@ export default function PayPage() {
           </div>
         </Link>
 
-        <PaymentCard paymentUrl={paymentUrl} className="shadow-xl" />
+        <PaymentCard className="shadow-xl" />
 
         <p className="mt-6 text-center text-sm text-ivory/55">
           <Link href="/#demo-booking" className="text-gold-light underline-offset-2 hover:underline">

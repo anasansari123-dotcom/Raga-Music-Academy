@@ -1,12 +1,21 @@
 import { siteConfig } from "@/lib/data";
-import { getSiteUrl } from "@/lib/site-url";
+import { PRODUCTION_SITE_URL } from "@/lib/site-url";
 
 export function getPaymentPagePath() {
   return siteConfig.payment.pagePath;
 }
 
+/** Always your public domain — never Vercel preview URLs with deployer name. */
 export function getPaymentPageUrl() {
-  return `${getSiteUrl()}${getPaymentPagePath()}`;
+  const path = getPaymentPagePath();
+
+  if (process.env.NODE_ENV === "development") {
+    const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+    if (fromEnv) return `${fromEnv.replace(/\/$/, "")}${path}`;
+    return `http://localhost:3000${path}`;
+  }
+
+  return `${PRODUCTION_SITE_URL}${path}`;
 }
 
 export function getPaymentWhatsAppShareUrl(paymentUrl?: string) {
