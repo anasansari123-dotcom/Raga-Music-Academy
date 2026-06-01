@@ -5,10 +5,11 @@ import { motion } from "framer-motion";
 import { Phone, Send, Loader2 } from "lucide-react";
 import { siteConfig } from "@/lib/data";
 import { InstagramIcon } from "@/components/ui/SocialIcons";
-import { SocialLinks } from "@/components/ui/SocialLinks";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import { PaymentCard } from "@/components/ui/PaymentCard";
 import { fadeUp } from "@/lib/motion";
+import { getPaymentPageUrl } from "@/lib/payment";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -70,13 +71,16 @@ export function Contact() {
           light
         />
 
-        <div className="grid w-full min-w-0 gap-8 lg:grid-cols-2 lg:gap-10">
-          <motion.form
+        <div className="grid w-full min-w-0 gap-8 lg:grid-cols-2 lg:items-start lg:gap-10">
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            className="flex w-full min-w-0 flex-col gap-5 sm:gap-6"
+          >
+          <motion.form
             onSubmit={handleSubmit}
-            className="glass relative w-full min-w-0 rounded-2xl p-5 sm:rounded-3xl sm:p-8"
+            className="glass relative h-fit w-full min-w-0 rounded-2xl p-5 sm:rounded-3xl sm:p-8"
           >
             {status === "success" ? (
               <motion.p
@@ -200,11 +204,34 @@ export function Contact() {
             )}
           </motion.form>
 
+            <motion.div variants={fadeUp} custom={0} className="glass w-full min-w-0 rounded-2xl p-5 sm:p-6">
+              <h3 className="heading-display mb-3 text-lg font-semibold text-ivory">
+                Newsletter
+              </h3>
+              <p className="mb-4 text-sm leading-relaxed text-ivory/60">
+                Receive riyaz tips, course updates, and performance invites.
+              </p>
+              <div className="flex min-w-0 flex-col gap-2 sm:flex-row">
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="box-border min-w-0 flex-1 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-ivory focus:border-gold/50 focus:outline-none"
+                />
+                <button
+                  type="button"
+                  className="w-full shrink-0 rounded-xl bg-gold px-4 py-2.5 text-sm font-semibold text-dark hover:bg-gold-light sm:w-auto"
+                >
+                  Join
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="w-full min-w-0 space-y-5 sm:space-y-6"
+            className="flex w-full min-w-0 flex-col gap-5 sm:gap-6"
           >
             <motion.div variants={fadeUp} custom={0} className="glass w-full min-w-0 rounded-2xl p-5 sm:p-6">
               <h3 className="heading-display mb-4 text-lg font-semibold text-ivory sm:text-xl">
@@ -236,35 +263,12 @@ export function Contact() {
                   </a>
                 </li>
               </ul>
-              <div className="mt-5 border-t border-white/10 pt-5">
-                <p className="mb-3 text-xs uppercase tracking-wider text-ivory/50">
-                  Follow us
-                </p>
-                <SocialLinks hideWhatsApp />
-              </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} custom={1} className="glass w-full min-w-0 rounded-2xl p-5 sm:p-6">
-              <h3 className="heading-display mb-3 text-lg font-semibold text-ivory">
-                Newsletter
-              </h3>
-              <p className="mb-4 text-sm leading-relaxed text-ivory/60">
-                Receive riyaz tips, course updates, and performance invites.
-              </p>
-              <div className="flex min-w-0 flex-col gap-2 sm:flex-row">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="box-border min-w-0 flex-1 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-ivory focus:border-gold/50 focus:outline-none"
-                />
-                <button
-                  type="button"
-                  className="w-full shrink-0 rounded-xl bg-gold px-4 py-2.5 text-sm font-semibold text-dark hover:bg-gold-light sm:w-auto"
-                >
-                  Join
-                </button>
-              </div>
-            </motion.div>
+            <PaymentCard
+              paymentUrl={getPaymentPageUrl()}
+              className="h-fit lg:sticky lg:top-28"
+            />
           </motion.div>
         </div>
       </div>

@@ -1,11 +1,24 @@
 import type { MusicProgram, CourseFee } from "./types";
 import { images } from "./images";
 
+import { PRODUCTION_SITE_URL } from "./site-url";
+
 export const siteConfig = {
   name: "RAGA VEDA",
   tagline: "Music Academy",
+  siteUrl: PRODUCTION_SITE_URL,
   phone: "+91 91365 93977",
   whatsapp: "https://wa.me/919136593977",
+  payment: {
+    qrImage: "/QR.jpeg",
+    title: "Pay via QR Code",
+    instruction: "Scan this code to pay",
+    note: "After payment, share the screenshot on WhatsApp for confirmation.",
+    pagePath: "/pay",
+    shareMessage:
+      "Pay fees for Raga Veda Music Academy — open this link to scan our payment QR code:",
+    linkLabel: "Payment page link",
+  },
   social: {
     instagram:
       "https://www.instagram.com/ragavedamusicacademy?igsh=aGJ3OG5vbTl3NTh4",

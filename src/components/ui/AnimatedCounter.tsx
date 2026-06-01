@@ -29,22 +29,30 @@ export function AnimatedCounter({
     if (!isInView || hasRun.current) return;
     hasRun.current = true;
 
+    let frameId = 0;
+    let cancelled = false;
     const duration = 2200;
     const start = performance.now();
 
     const tick = (now: number) => {
+      if (cancelled) return;
       const progress = Math.min((now - start) / duration, 1);
       const eased = easeOutCubic(progress);
       setCount(Math.round(value * eased));
       if (progress < 1) {
-        requestAnimationFrame(tick);
+        frameId = requestAnimationFrame(tick);
       } else {
         setCount(value);
       }
     };
 
     setCount(0);
-    requestAnimationFrame(tick);
+    frameId = requestAnimationFrame(tick);
+
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(frameId);
+    };
   }, [isInView, value]);
 
   return (
