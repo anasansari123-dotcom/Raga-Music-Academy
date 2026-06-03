@@ -10,9 +10,10 @@ export const siteConfig = {
   phone: "+91 91365 93977",
   whatsapp: "https://wa.me/919136593977",
   payment: {
-    qrImage: "/QR.jpeg",
+    qrImage: "/QR.png",
+    upiId: "8826723643@ptaxis",
     title: "Pay via QR Code",
-    instruction: "Scan this code to pay",
+    instruction: "Scan this QR code or pay using the UPI ID below",
     note: "After payment, share the screenshot on WhatsApp for confirmation.",
     pagePath: "/pay",
     shareMessage:
