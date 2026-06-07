@@ -2,57 +2,42 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Send, Loader2 } from "lucide-react";
+import { Phone, Send } from "lucide-react";
 import { siteConfig } from "@/lib/data";
+import { courseInterestLabels, getContactWhatsAppUrl } from "@/lib/contact-whatsapp";
 import { InstagramIcon } from "@/components/ui/SocialIcons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { PaymentCard } from "@/components/ui/PaymentCard";
 import { fadeUp } from "@/lib/motion";
 
-type FormStatus = "idle" | "loading" | "success" | "error";
+type FormStatus = "idle" | "success";
 
 export function Contact() {
   const [status, setStatus] = useState<FormStatus>("idle");
-  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("loading");
-    setErrorMessage("");
 
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    if (String(formData.get("website") ?? "").trim()) return;
+
     const payload = {
-      name: String(formData.get("name") ?? ""),
-      email: String(formData.get("email") ?? ""),
-      course: String(formData.get("course") ?? ""),
-      message: String(formData.get("message") ?? ""),
-      website: String(formData.get("website") ?? ""),
+      name: String(formData.get("name") ?? "").trim(),
+      email: String(formData.get("email") ?? "").trim(),
+      course: String(formData.get("course") ?? "").trim(),
+      message: String(formData.get("message") ?? "").trim(),
     };
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+    if (!payload.name || !payload.email || !payload.course) return;
 
-      const data = (await res.json().catch(() => ({}))) as { error?: string };
+    const whatsappUrl = getContactWhatsAppUrl(payload);
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
-      if (!res.ok) {
-        throw new Error(data.error ?? "Could not send your message. Please try again.");
-      }
-
-      setStatus("success");
-      form.reset();
-    } catch (err) {
-      setStatus("error");
-      setErrorMessage(
-        err instanceof Error ? err.message : "Could not send your message. Please try again."
-      );
-    }
+    setStatus("success");
+    form.reset();
   };
 
   return (
@@ -87,8 +72,8 @@ export function Contact() {
                 animate={{ opacity: 1 }}
                 className="break-words py-10 text-center text-base text-gold-light sm:py-12 sm:text-lg"
               >
-                Thank you! We received your inquiry and will reach out on WhatsApp or phone
-                within 24 hours.
+                Thank you! WhatsApp opened with your details — tap Send there and we
+                will reach out within 24 hours.
               </motion.p>
             ) : (
               <>
@@ -114,8 +99,7 @@ export function Contact() {
                       name="name"
                       required
                       type="text"
-                      disabled={status === "loading"}
-                      className="box-border w-full max-w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-ivory placeholder:text-ivory/30 focus:border-gold/50 focus:outline-none disabled:opacity-60"
+                      className="box-border w-full max-w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-ivory placeholder:text-ivory/30 focus:border-gold/50 focus:outline-none"
                       placeholder="Your name"
                     />
                   </div>
@@ -131,8 +115,7 @@ export function Contact() {
                       name="email"
                       required
                       type="email"
-                      disabled={status === "loading"}
-                      className="box-border w-full max-w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-ivory placeholder:text-ivory/30 focus:border-gold/50 focus:outline-none disabled:opacity-60"
+                      className="box-border w-full max-w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-ivory placeholder:text-ivory/30 focus:border-gold/50 focus:outline-none"
                       placeholder="you@email.com"
                     />
                   </div>
@@ -149,15 +132,17 @@ export function Contact() {
                     id="contact-course"
                     name="course"
                     required
-                    disabled={status === "loading"}
                     defaultValue="carnatic"
-                    className="box-border w-full max-w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-ivory focus:border-gold/50 focus:outline-none disabled:opacity-60"
+                    className="box-border w-full max-w-full appearance-none rounded-xl border border-white/15 bg-white/5 bg-[length:1rem] bg-[right_1rem_center] bg-no-repeat px-4 py-3 pr-10 text-ivory focus:border-gold/50 focus:outline-none [&>option]:bg-ivory [&>option]:text-dark"
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23faf7f2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`,
+                    }}
                   >
-                    <option value="carnatic">Carnatic Classical</option>
-                    <option value="hindustani">Hindustani Classical</option>
-                    <option value="bollywood">Bollywood / Filmy</option>
-                    <option value="bhajans">Bhajans & Shlokas</option>
-                    <option value="western">Western Music Vocal</option>
+                    {Object.entries(courseInterestLabels).map(([value, label]) => (
+                      <option key={value} value={value}>
+                        {label}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -172,31 +157,19 @@ export function Contact() {
                     id="contact-message"
                     name="message"
                     rows={4}
-                    disabled={status === "loading"}
-                    className="box-border w-full max-w-full resize-none rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-ivory placeholder:text-ivory/30 focus:border-gold/50 focus:outline-none disabled:opacity-60"
+                    className="box-border w-full max-w-full resize-none rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-ivory placeholder:text-ivory/30 focus:border-gold/50 focus:outline-none"
                     placeholder="Tell us about your musical goals..."
                   />
                 </div>
-
-                {status === "error" && (
-                  <p className="mt-4 break-words rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
-                    {errorMessage}
-                  </p>
-                )}
 
                 <div className="mt-6">
                   <Button
                     type="submit"
                     variant="primary"
                     className="w-full max-w-full sm:w-auto"
-                    disabled={status === "loading"}
                   >
-                    {status === "loading" ? (
-                      <Loader2 size={18} className="animate-spin" />
-                    ) : (
-                      <Send size={18} />
-                    )}
-                    {status === "loading" ? "Sending…" : "Send Message"}
+                    <Send size={18} />
+                    Send
                   </Button>
                 </div>
               </>

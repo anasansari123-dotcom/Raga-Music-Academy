@@ -40,16 +40,19 @@ function TeacherPortrait({ teacher }: { teacher: Teacher }) {
         className={cn(
           fitContain ? "object-contain p-3 sm:p-4" : "object-cover",
           teacher.imagePosition ??
-            (teacher.founder ? "object-[center_20%]" : "object-center")
+            (teacher.founder ? "object-[center_25%]" : "object-center")
         )}
         priority={teacher.founder}
         loading={teacher.founder ? undefined : "lazy"}
-        quality={teacher.founder ? 85 : 75}
+        quality={teacher.founder ? 100 : 75}
+        unoptimized={teacher.founder}
       />
-      <motion.div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-purple-deep/50 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-white/30"
-        aria-hidden
-      />
+      {!teacher.founder && (
+        <motion.div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-purple-deep/50 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-white/30"
+          aria-hidden
+        />
+      )}
     </motion.div>
   );
 }

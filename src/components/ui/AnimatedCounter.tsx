@@ -23,10 +23,15 @@ export function AnimatedCounter({
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.35, margin: "0px 0px -40px 0px" });
   const [count, setCount] = useState(0);
+  const [mounted, setMounted] = useState(false);
   const hasRun = useRef(false);
 
   useEffect(() => {
-    if (!isInView || hasRun.current) return;
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || !isInView || hasRun.current) return;
     hasRun.current = true;
 
     let frameId = 0;
@@ -53,7 +58,7 @@ export function AnimatedCounter({
       cancelled = true;
       cancelAnimationFrame(frameId);
     };
-  }, [isInView, value]);
+  }, [mounted, isInView, value]);
 
   return (
     <motion.div

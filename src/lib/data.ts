@@ -30,6 +30,9 @@ export const siteConfig = {
 
 export const aboutContent = {
   title: "About Raga Veda Music Academy",
+  image: "/teachers/aditi-govindan.jpeg",
+  imageAlt:
+    "Traditional Carnatic vocal performance with tanpura, mridangam and classical instruments",
   intro: [
     "At Raga Veda Music Academy, we believe that music is not just an art form — it is a journey of confidence, creativity, discipline, and self-expression. Our mission is to nurture every student with the right guidance, structured training, and encouragement to help them discover their true musical potential.",
   ],
@@ -37,7 +40,6 @@ export const aboutContent = {
     name: "Ms. Aditi Govindan",
     role: "Advanced Level Carnatic Music Artist, Performer & Vocal Trainer",
     bio: "Founded by Ms. Aditi Govindan, the academy was established with a vision to provide high-quality and systematic music education for students of all age groups. She has received guidance under esteemed Gurus Smt. Jaishree Ranganathan, Smt. Nirmala Bhaskaran, and renowned Carnatic musician Vidwan Neyveli Santhanagopalan. With years of performance and teaching experience, she is deeply committed to preserving the rich tradition of Indian classical music while making learning accessible, enjoyable, and confidence-building for modern learners.",
-    image: "/teachers/aditi-govindan.jpeg",
   },
   teachingApproach:
     "At Raga Veda Music Academy, we understand that every student learns differently. Our specially designed teaching methods focus on step-by-step learning for children, adults, beginners, advanced learners, and special children. We emphasize not only learning songs, but also building strong fundamentals in shruti alignment, voice culture, rhythm, expression, and stage confidence.",
