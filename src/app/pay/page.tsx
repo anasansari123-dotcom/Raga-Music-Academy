@@ -49,6 +49,24 @@ export default function PayPage() {
             Back to website
           </Link>
         </p>
+
+        <p className="mt-4 text-center text-xs leading-relaxed text-ivory/45">
+          <Link href="/terms" className="hover:text-gold-light/80 hover:underline">
+            Terms
+          </Link>
+          {" · "}
+          <Link href="/privacy" className="hover:text-gold-light/80 hover:underline">
+            Privacy
+          </Link>
+          {" · "}
+          <Link href="/refund-policy" className="hover:text-gold-light/80 hover:underline">
+            Refund Policy
+          </Link>
+          {" · "}
+          <Link href="/contact" className="hover:text-gold-light/80 hover:underline">
+            Contact
+          </Link>
+        </p>
       </div>
     </div>
   );
