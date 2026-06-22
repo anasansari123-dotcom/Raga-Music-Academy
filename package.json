@@ -7,24 +7,34 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "seed:admin": "node scripts/seed-admin.mjs",
+    "reset:admin": "node scripts/reset-admin.mjs",
+    "seed:courses": "node scripts/seed-courses.mjs"
   },
   "engines": {
     "node": ">=20"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "framer-motion": "^12.38.0",
     "gsap": "^3.15.0",
     "lucide-react": "^1.16.0",
+    "mongoose": "^9.7.1",
     "next": "16.2.6",
+    "next-auth": "^5.0.0-beta.31",
     "nodemailer": "^8.0.7",
+    "pdfkit": "^0.19.1",
+    "razorpay": "^2.9.6",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
     "@types/nodemailer": "^8.0.0",
+    "@types/pdfkit": "^0.17.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

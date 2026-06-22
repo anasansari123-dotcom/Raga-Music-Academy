@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import { AuthProvider } from "@/components/portal/AuthProvider";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
@@ -77,7 +78,7 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${inter.variable} min-h-screen bg-ivory font-body text-dark antialiased`}
       >
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
