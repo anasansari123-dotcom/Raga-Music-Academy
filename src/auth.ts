@@ -1,14 +1,9 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { verifyCredentials } from "@/lib/verify-credentials";
+import { authConfig } from "@/auth.config";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  secret: process.env.AUTH_SECRET,
-  trustHost: true,
-  session: { strategy: "jwt" },
-  pages: {
-    signIn: "/login",
-  },
+  ...authConfig,
   providers: [
     Credentials({
       id: "credentials",
@@ -28,6 +23,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return null;
           }
 
+          // Dynamic import keeps MongoDB out of Edge bundles (middleware).
+          const { verifyCredentials } = await import("@/lib/verify-credentials");
           const user = await verifyCredentials(email, password);
 
           if (!user) {
@@ -45,22 +42,4 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id;
-        token.role = user.role;
-        token.phone = user.phone;
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      if (session.user) {
-        session.user.id = token.id as string;
-        session.user.role = token.role as "admin" | "user";
-        session.user.phone = token.phone as string;
-      }
-      return session;
-    },
-  },
 });

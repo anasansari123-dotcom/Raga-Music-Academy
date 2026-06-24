@@ -112,6 +112,25 @@ export async function runHealthChecks(): Promise<HealthReport> {
     })
   );
 
+  checks.push(
+    envCheck(
+      "AUTH_URL",
+      "Auth URL",
+      process.env.AUTH_URL ?? process.env.NEXTAUTH_URL,
+      {
+        required: false,
+        validate: (v) => {
+          try {
+            new URL(v);
+            return null;
+          } catch {
+            return "Invalid URL format.";
+          }
+        },
+      }
+    )
+  );
+
   checks.push(envCheck("MONGODB_URI", "MongoDB URI", process.env.MONGODB_URI));
 
   if (process.env.MONGODB_URI && !isPlaceholder(process.env.MONGODB_URI)) {
