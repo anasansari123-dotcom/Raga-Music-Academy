@@ -20,8 +20,10 @@ export default function AboutPage() {
       <h2>Our Founder</h2>
       <p>
         <strong>{aboutContent.founder.name}</strong> — {aboutContent.founder.role}.
-        {aboutContent.founder.bio}
       </p>
+      {aboutContent.intro.slice(1).map((paragraph) => (
+        <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+      ))}
 
       <h2>Teaching Approach</h2>
       <p>{aboutContent.teachingApproach}</p>

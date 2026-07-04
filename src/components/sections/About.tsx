@@ -198,7 +198,6 @@ export function About() {
                 </p>
               ))}
 
-              <p className="leading-relaxed text-dark-soft/75">{founder.bio}</p>
               <p className="leading-relaxed text-dark-soft/75">
                 {aboutContent.teachingApproach}
               </p>
