@@ -6,7 +6,7 @@ import { businessInfo } from "@/lib/legal";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: `Learn about ${businessInfo.legalName} — our mission, founder, teaching approach, and certifications.`,
+  description: `Learn about ${businessInfo.legalName} — our programs, training, and certifications.`,
 };
 
 export default function AboutPage() {
@@ -15,18 +15,9 @@ export default function AboutPage() {
       title="About Us"
       description={`${businessInfo.legalName} nurtures students in Indian classical and contemporary vocal music through structured online and offline training.`}
     >
-      <p>{aboutContent.intro[0]}</p>
-
-      <h2>Our Founder</h2>
-      <p>
-        <strong>{aboutContent.founder.name}</strong> — {aboutContent.founder.role}.
-      </p>
-      {aboutContent.intro.slice(1).map((paragraph) => (
+      {aboutContent.intro.map((paragraph) => (
         <p key={paragraph.slice(0, 40)}>{paragraph}</p>
       ))}
-
-      <h2>Teaching Approach</h2>
-      <p>{aboutContent.teachingApproach}</p>
 
       <h2>Programs Offered</h2>
       <ul>
@@ -52,7 +43,7 @@ export default function AboutPage() {
         ))}
       </ul>
 
-      <p>{aboutContent.closing}</p>
+      {aboutContent.closing ? <p>{aboutContent.closing}</p> : null}
 
       <p>
         <Link href="/contact">Contact us</Link> to book a free demo or{" "}

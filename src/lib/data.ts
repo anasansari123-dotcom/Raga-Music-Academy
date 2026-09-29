@@ -30,21 +30,17 @@ export const siteConfig = {
 
 export const aboutContent = {
   title: "About Raga Veda Music Academy",
-  image: "/teachers/aditi-govindan.jpeg",
-  imageAlt:
-    "Traditional Carnatic vocal performance with tanpura, mridangam and classical instruments",
   intro: [
-    "At Raga Veda Music Academy, we believe that music is more than an art—it is a lifelong journey of discipline, creativity, confidence, and self-expression. Our mission is to provide structured, authentic, and inspiring music education that nurtures every student's musical potential while preserving the rich heritage of Indian classical music.",
-    "The academy was founded by Ms. Aditi Govindan, a Carnatic vocalist and educator who is an alumna of the prestigious Madras Music Academy, one of the world's most respected institutions dedicated to Indian classical music. Established in 1928, the Madras Music Academy has played a pioneering role in preserving, promoting, and setting the highest standards for Carnatic music. It is internationally renowned for its annual December Music Festival, which features performances by India's most distinguished musicians and serves as a benchmark of excellence in the field of Carnatic music.",
-    "Aditi has had the privilege of learning under several renowned Carnatic maestros, including Dr. S. Sowmya, Vidwan Neyveli Santhanagopalan, Smt. Baby Sriram, and other respected gurus. This diverse musical training has enabled her to develop a balanced teaching approach that combines traditional values with modern, student-friendly learning methods.",
+    "Rooted in the rich traditions of Indian classical music, our academy is dedicated to providing structured, authentic, and inspiring music education to learners across India and around the world.",
+    "Our approach brings together the depth and discipline of traditional musical learning with a contemporary, student-focused method of teaching. Students are guided through a systematic learning journey that nurtures their musical foundation, voice culture, repertoire, pitch and rhythm, musical expression, confidence, and performance skills.",
+    "With programmes designed for children, young learners, and adults at different levels of experience, the academy aims to make quality music education accessible while maintaining the values and discipline that form the foundation of Indian classical music.",
+    "Beyond learning to sing, students are encouraged to understand, practise, perform, and experience music as a lifelong journey. Through regular training, performance opportunities, workshops, competitions, and curated musical programmes, we strive to create an environment where every learner can discover their musical potential.",
   ],
   founder: {
     name: "Ms. Aditi Govindan",
-    role: "Founder — Carnatic Vocalist & Educator | Madras Music Academy Alumna",
-    bio: "The academy was founded by Ms. Aditi Govindan, a Carnatic vocalist and educator who is an alumna of the prestigious Madras Music Academy, one of the world's most respected institutions dedicated to Indian classical music. Established in 1928, the Madras Music Academy has played a pioneering role in preserving, promoting, and setting the highest standards for Carnatic music. It is internationally renowned for its annual December Music Festival, which features performances by India's most distinguished musicians and serves as a benchmark of excellence in the field of Carnatic music. Aditi has had the privilege of learning under several renowned Carnatic maestros, including Dr. S. Sowmya, Vidwan Neyveli Santhanagopalan, Smt. Baby Sriram, and other respected gurus. This diverse musical training has enabled her to develop a balanced teaching approach that combines traditional values with modern, student-friendly learning methods.",
+    role: "Faculty Head — Carnatic Vocal Educator",
+    bio: "",
   },
-  teachingApproach:
-    "At Raga Veda Music Academy, we recognize that every student has a unique learning journey. Our carefully structured curriculum is designed for children, adults, beginners, advanced learners, and international students. We focus on building strong musical foundations through Shruti alignment, voice culture, swara and raga development, rhythm (laya), manodharma basics, bhava (expression), and stage confidence, ensuring that students grow into confident and well-rounded musicians.",
   trainingOffered: [
     "Carnatic Classical Vocal",
     "Hindustani Classical Vocal",
@@ -90,9 +86,7 @@ export const aboutContent = {
       },
     ],
   },
-  closing:
-    "With personalized guidance, small batch sizes, one-on-one mentoring, and regular performance opportunities, we strive to make learning meaningful, enjoyable, and accessible to students across the world. Whether your goal is personal enrichment, stage performance, certification, or lifelong learning, Raga Veda Music Academy is committed to guiding you every step of your musical journey with excellence, authenticity, and dedication.",
-  stat: { value: "15+", label: "Years of Musical Excellence" },
+  closing: "",
 };
 
 export const navLinks = [
@@ -537,6 +531,9 @@ export type Teacher = {
   languages: string[];
   image?: string;
   bio: string;
+  /** Optional subheading above multi-paragraph bio (e.g. founder story) */
+  bioHeading?: string;
+  bioParagraphs?: string[];
   tagline?: string;
   location?: string;
   highlights?: string[];
@@ -550,26 +547,25 @@ export type Teacher = {
 
 export const aditiGovindan: Teacher = {
   name: "Ms. Aditi Govindan",
-  role: "Founder & Faculty Head — Carnatic Vocal Educator",
-  badge: "Founder & Faculty Head",
-  tagline: "Madras Music Academy • Tradition • Authentic Learning",
+  role: "Faculty Head — Carnatic Vocal Educator",
+  badge: "Faculty Head",
+  tagline: "Tradition • Voice Culture • Authentic Learning",
   location: "Chennai, Tamil Nadu, India",
   languages: ["Tamil", "English", "Hindi"],
   image: "/teachers/aditi-govindan.jpeg",
   imagePosition: "object-[center_25%]",
   imageFit: "cover",
   highlights: [
-    "Alumna — Madras Music Academy",
+    "Advanced Carnatic Vocal Music",
     "15+ Years of Experience",
     "Beginner to Advanced — Carnatic Vocal",
   ],
-bio: "Raga Veda Music Academy was founded by Ms. Aditi Govindan, a Carnatic vocalist, performer, and music educator with a deep passion for Indian classical music. She has undergone extensive training in Advanced Carnatic Vocal Music and has performed at various music sabhas, Navratri celebrations, cultural programmes, and other musical events.\n\nWith a strong commitment to preserving the richness and authenticity of Carnatic music, Ms. Aditi founded Raga Veda Music Academy with the vision of making structured and quality music education accessible to students across India and around the world.\n\nThe academy provides a nurturing and systematic learning environment where students are encouraged to develop their musical foundation, voice culture, repertoire, confidence, and performance abilities under the guidance of experienced teachers.\n\nHer vision is to create a learning space that respects the traditional values of Indian classical music while embracing a structured, student-focused approach that inspires learners to develop their skills with dedication, confidence, and a lifelong love for music.",  credentials: [
-    "Alumna — Madras Music Academy, Chennai",
-    "Advanced training under Dr. S. Sowmya",
-    "Advanced training under Vidwan Neyveli Santhanagopalan",
-    "Training under Smt. Baby Sriram and other respected gurus",
-    "Private Carnatic vocal classes (2019 – Present)",
-    "Performances at cultural & temple events in Chennai — Navratri Utsavam & Tamil Sangam programs",
+  bio: "",
+  bioParagraphs: [
+    "Raga Veda Music Academy was founded by Ms. Aditi Govindan, a Carnatic vocalist, performer, and music educator with a deep passion for Indian classical music. She has undergone extensive training in Advanced Carnatic Vocal Music and has performed at various music sabhas, Navratri celebrations, cultural programmes, and other musical events.",
+    "With a strong commitment to preserving the richness and authenticity of Carnatic music, Ms. Aditi founded Raga Veda Music Academy with the vision of making structured and quality music education accessible to students across India and around the world.",
+    "The academy provides a nurturing and systematic learning environment where students are encouraged to develop their musical foundation, voice culture, repertoire, confidence, and performance abilities under the guidance of experienced teachers.",
+    "Her vision is to create a learning space that respects the traditional values of Indian classical music while embracing a structured, student-focused approach that inspires learners to develop their skills with dedication, confidence, and a lifelong love for music.",
   ],
   founder: true,
 };
