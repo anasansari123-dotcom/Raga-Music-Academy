@@ -15,7 +15,6 @@ export function getDbName() {
 }
 
 declare global {
-  // eslint-disable-next-line no-var
   var mongoClientPromise: Promise<MongoClient> | undefined;
 }
 

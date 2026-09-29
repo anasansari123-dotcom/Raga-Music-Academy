@@ -21,27 +21,14 @@ type Step = "form" | "pay" | "success";
 export function CourseBookNowModal({ course, open, onClose }: CourseBookNowModalProps) {
   const { data: session } = useSession();
   const [step, setStep] = useState<Step>("form");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [name, setName] = useState(session?.user?.name ?? "");
+  const [email, setEmail] = useState(session?.user?.email ?? "");
+  const [phone, setPhone] = useState(session?.user?.phone ?? "");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [paymentRequest, setPaymentRequest] = useState<PaymentRequestDTO | null>(null);
   const [completedPayment, setCompletedPayment] = useState<PaymentDTO | null>(null);
-
-  useEffect(() => {
-    if (!open) return;
-
-    setStep("form");
-    setError(null);
-    setPaymentRequest(null);
-    setCompletedPayment(null);
-    setName(session?.user?.name ?? "");
-    setEmail(session?.user?.email ?? "");
-    setPhone(session?.user?.phone ?? "");
-    setPassword("");
-  }, [open, session?.user?.email, session?.user?.name, session?.user?.phone]);
 
   useEffect(() => {
     if (!open) return;

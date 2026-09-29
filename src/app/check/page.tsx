@@ -53,7 +53,8 @@ export default function CheckPage() {
   }, []);
 
   useEffect(() => {
-    runCheck();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- run health check on mount
+    void runCheck();
   }, [runCheck]);
 
   const allOk = report?.summary.fail === 0 && report?.summary.warn === 0;

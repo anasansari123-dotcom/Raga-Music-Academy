@@ -48,7 +48,8 @@ export default function DashboardPage() {
   }, []);
 
   useEffect(() => {
-    loadRequests();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- fetch user payment requests on mount
+    void loadRequests();
   }, [loadRequests]);
 
   const pending = requests.filter((r) => r.status === "pending");

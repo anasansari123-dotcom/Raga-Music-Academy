@@ -35,7 +35,8 @@ export default function AdminReceiptsPage() {
   }, []);
 
   useEffect(() => {
-    loadPayments();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- fetch payments on mount
+    void loadPayments();
   }, [loadPayments]);
 
   const handleAction = async (id: string, action: "verify" | "reject") => {

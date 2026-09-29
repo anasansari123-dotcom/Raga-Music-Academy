@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { motion, useInView } from "framer-motion";
 
 type AnimatedCounterProps = {
@@ -14,6 +14,14 @@ function easeOutCubic(t: number) {
   return 1 - Math.pow(1 - t, 3);
 }
 
+function subscribeNoop() {
+  return () => {};
+}
+
+function useIsClient() {
+  return useSyncExternalStore(subscribeNoop, () => true, () => false);
+}
+
 export function AnimatedCounter({
   value,
   suffix = "",
@@ -23,12 +31,8 @@ export function AnimatedCounter({
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.35, margin: "0px 0px -40px 0px" });
   const [count, setCount] = useState(0);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useIsClient();
   const hasRun = useRef(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!mounted || !isInView || hasRun.current) return;

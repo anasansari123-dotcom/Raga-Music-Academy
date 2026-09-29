@@ -1,5 +1,5 @@
 import { connectDB } from "@/lib/db";
-import { requireAuth, requireAdmin, jsonError } from "@/lib/api-auth";
+import { requireAuth, jsonError } from "@/lib/api-auth";
 import { Payment } from "@/models/Payment";
 import { PaymentRequest } from "@/models/PaymentRequest";
 import { User } from "@/models/User";

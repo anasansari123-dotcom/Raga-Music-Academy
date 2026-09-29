@@ -45,7 +45,8 @@ export default function AdminCoursesPage() {
   }, []);
 
   useEffect(() => {
-    loadCourses();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- fetch course list on mount
+    void loadCourses();
   }, [loadCourses]);
 
   const resetForm = () => {

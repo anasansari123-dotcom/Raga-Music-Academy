@@ -186,33 +186,35 @@ function TeacherCard({ teacher }: { teacher: Teacher }) {
             ))}
           </motion.div>
 
-                  <motion.div
-                    variants={fadeUp}
-                    custom={5}
-                    className="mt-6 space-y-4 border-t border-gold/15 pt-6"
-                  >
-                    {teacher.bioParagraphs && teacher.bioParagraphs.length > 0 ? (
-                      <>
-                        {teacher.bioHeading ? (
-                          <p className="text-sm font-semibold tracking-wide text-dark">
-                            {teacher.bioHeading}
-                          </p>
-                        ) : null}
-                        {teacher.bioParagraphs.map((paragraph) => (
-                          <p
-                            key={paragraph.slice(0, 48)}
-                            className="text-sm leading-relaxed text-dark-soft/85"
-                          >
-                            {paragraph}
-                          </p>
-                        ))}
-                      </>
-                    ) : teacher.bio ? (
-                      <p className="text-base leading-relaxed text-dark-soft/90">
-                        {teacher.bio}
-                      </p>
-                    ) : null}
-                  </motion.div>
+                  {(teacher.bioParagraphs?.length ?? 0) > 0 || teacher.bio ? (
+                    <motion.div
+                      variants={fadeUp}
+                      custom={5}
+                      className="mt-6 space-y-4 border-t border-gold/15 pt-6"
+                    >
+                      {teacher.bioParagraphs && teacher.bioParagraphs.length > 0 ? (
+                        <>
+                          {teacher.bioHeading ? (
+                            <p className="text-sm font-semibold tracking-wide text-dark">
+                              {teacher.bioHeading}
+                            </p>
+                          ) : null}
+                          {teacher.bioParagraphs.map((paragraph) => (
+                            <p
+                              key={paragraph.slice(0, 48)}
+                              className="text-sm leading-relaxed text-dark-soft/85"
+                            >
+                              {paragraph}
+                            </p>
+                          ))}
+                        </>
+                      ) : (
+                        <p className="whitespace-pre-line text-base leading-relaxed text-dark-soft/90">
+                          {teacher.bio}
+                        </p>
+                      )}
+                    </motion.div>
+                  ) : null}
 
                   {teacher.credentials && teacher.credentials.length > 0 && (
                     <motion.ul

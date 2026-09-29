@@ -171,6 +171,7 @@ export function PricingSection({ embedded = false }: PricingSectionProps) {
 
       {bookingCourse ? (
         <CourseBookNowModal
+          key={bookingCourse.id}
           course={bookingCourse}
           open
           onClose={() => setBookingCourse(null)}

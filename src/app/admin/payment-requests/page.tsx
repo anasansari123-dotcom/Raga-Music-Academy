@@ -57,7 +57,8 @@ export default function AdminPaymentRequestsPage() {
   }, []);
 
   useEffect(() => {
-    loadData();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- fetch payment requests on mount
+    void loadData();
   }, [loadData]);
 
   const handleCreateRequest = async (e: React.FormEvent) => {
