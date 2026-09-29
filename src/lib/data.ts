@@ -563,9 +563,8 @@ export const aditiGovindan: Teacher = {
   bio: "",
   bioParagraphs: [
     "Raga Veda Music Academy was founded by Ms. Aditi Govindan, a Carnatic vocalist, performer, and music educator with a deep passion for Indian classical music. She has undergone extensive training in Advanced Carnatic Vocal Music and has performed at various music sabhas, Navratri celebrations, cultural programmes, and other musical events.",
-    "With a strong commitment to preserving the richness and authenticity of Carnatic music, Ms. Aditi founded Raga Veda Music Academy with the vision of making structured and quality music education accessible to students across India and around the world.",
+    "Our mission is to create a learning space that respects the traditional values of Indian Classical music while embracing a structured, student-focused approach that inspires learners to develop their skills with dedication, confidence, and a lifelong love for music.",
     "The academy provides a nurturing and systematic learning environment where students are encouraged to develop their musical foundation, voice culture, repertoire, confidence, and performance abilities under the guidance of experienced teachers.",
-    "Her vision is to create a learning space that respects the traditional values of Indian classical music while embracing a structured, student-focused approach that inspires learners to develop their skills with dedication, confidence, and a lifelong love for music.",
   ],
   founder: true,
 };
